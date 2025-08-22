@@ -51,6 +51,161 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
+    // Download CV Functionality
+    const downloadCvBtn = document.getElementById('download-cv');
+    if (downloadCvBtn) {
+        downloadCvBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            // Add visual feedback
+            const originalContent = this.innerHTML;
+            this.innerHTML = `
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <polyline points="12,6 12,12 16,14"></polyline>
+                </svg>
+                Preparing CV...
+            `;
+            this.disabled = true;
+            
+            // Simulate CV download preparation
+            setTimeout(() => {
+                // Create a mock CV download
+                const cvContent = generateCVContent();
+                const blob = new Blob([cvContent], { type: 'text/plain' });
+                const url = window.URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = 'Ankur_Debnath_CV.txt';
+                document.body.appendChild(a);
+                a.click();
+                document.body.removeChild(a);
+                window.URL.revokeObjectURL(url);
+                
+                // Show success notification
+                showNotification('CV downloaded successfully! Thank you for your interest in my profile.', 'success');
+                
+                // Reset button
+                this.innerHTML = originalContent;
+                this.disabled = false;
+            }, 2000);
+        });
+    }
+
+    // Generate CV Content Function
+    function generateCVContent() {
+        return `
+ANKUR DEBNATH
+AI/ML Leader & Research Innovator
+Building scalable AI platforms that drive enterprise transformation
+
+CONTACT INFORMATION
+Email: ankurdebnath35@gmail.com
+Phone: +91-7002296838
+Location: Gurugram, India
+LinkedIn: https://linkedin.com/in/ankur-debnath-b0b694104
+GitHub: https://github.com/AnkurDebnath35
+Google Scholar: https://scholar.google.com/citations?hl=en&user=9_SZhIYAAAAJ
+
+PROFESSIONAL SUMMARY
+AI/ML leader with 5+ years of experience building and scaling end-to-end AI platforms in enterprise environments. Led teams of 5+ Data Scientists and Engineers while architecting production systems processing millions of documents, generating $15M revenue opportunities and achieving 100+ FTE cost savings. Proven track record in technical leadership and team mentorship, combining deep expertise in LLMs, GANs, NLP, Speech AI, Time Series and production AI systems with research innovation (4 publications, 3+ patents) and operational excellence.
+
+CORE COMPETENCIES
+
+Data Science & AI:
+Large Language Models, RAG, Deep Research (Agentic), ASR, TTS, Natural Language Processing, Machine Learning, Deep Learning, TensorFlow, Keras, PySpark, PyTorch, Big Data, GANs, Time Series
+
+Programming Languages:
+Python, NumPy, SciPy, Matplotlib, Pandas, Scikit-Learn, C, C++
+
+Tools & Frameworks:
+Celery, Redis, Kafka, WebSockets, LangChain, CrewAI, LlamaIndex, PEFT, FAISS, Pinecone, Docker, pgvector, Web Automation, SQL, Impala, Hadoop, Apache Airflow, FastAPI, Flask, Git
+
+Cloud & Infrastructure:
+AWS Lambda, AWS EventBridge, AWS SageMaker, AWS API Gateway, Kubernetes, AWS S3, AWS ECR, AWS EC2, AWS SQS, AWS CloudWatch
+
+PROFESSIONAL EXPERIENCE
+
+Lead Data Scientist, Senior Data Scientist | S&P Global - Enterprise Data Organisation | Sep 2022 – Present | Gurugram, India
+
+Key Projects:
+• AI Live Transcripts: End-to-end live transcription system for Corporate Calls using OpenAI's Whisper Large V3, DIART for real-time diarization, and NVIDIA's Titanet. ($12M annual opportunity)
+• DocSense - Document Relevancy & Routing: Platform replacing legacy workflows with 80% noise reduction, 65k+ man hours saved
+• Project Nova - Controversy Tracking: ESG controversy tracking with $2.5M annual opportunity
+• Web IQ - Bank Rates & ETF Solutions: 40 FTE cost avoidance, 27% TAT increase
+
+Data Scientist 2 - AI Specialist | MasterCard, AI Garage | Aug 2020 – Sep 2022 | Gurugram, India
+
+Key Projects:
+• ESG Q&A System For Investors: Neural Q&A system using BERT and Streamlit
+• Intelligent Retry Scores: Payment behavior modeling for major merchants
+
+FEATURED PROJECTS
+
+1. Good Quality End-to-end Hindi TTS using Tacotron2, WaveGlow and Transfer Learning (Aug 2019 – June 2020)
+   - Designed, develop and test an end-to-end TTS for Hindi in a well-known voice
+   - With only 20 hrs of speech, able to achieve MOS of 4.45
+   - GitHub: https://github.com/AnkurDebnath35/hindi-tts-tacotron2
+
+2. Text-Independent Speaker Identification using Scattering Transform (Jan 2019 – May 2019)
+   - Text-independent speaker identification is attempted using features generated by scattering transform, achieved accuracy of 99.78%
+   - GitHub: https://github.com/AnkurDebnath35/speaker-identification-scattering
+
+3. Relation Extraction using Neural Network (Jan 2019 – May 2019)
+   - Analyzed different architectures like PCNN, BiGRU and GCN, that have been shown to be very good in Relation Extraction
+   - GitHub: https://github.com/AnkurDebnath35/neural-relation-extraction
+
+4. Explainable Deep Learning (Jan 2019 – May 2019)
+   - Addressed problem of model explanability, focussed on local and global explanations in image classification task
+   - GitHub: https://github.com/AnkurDebnath35/explainable-deep-learning
+
+RESEARCH & PUBLICATIONS
+
+1. Modeling Inter-Dependence Between Time and Mark in Multivariate Temporal Point Processes
+   Authors: Waghmare G., Debnath A., Asthana S., and Malhotra A.
+   Venue: 31st ACM International Conference on Information & Knowledge Management, CIKM 2022
+
+2. Adversarial Generation of Temporal Data: A Critique on Fidelity of Synthetic Data
+   Authors: Debnath A., Gupta N., Waghmare G., Wadhwa H., Asthana S., Arora A.
+   Venue: Machine Learning and Principles and Practice of Knowledge Discovery in Databases, ECML PKDD 2021
+
+3. Exploring Generative Data Augmentation in Multivariate Time Series Forecasting
+   Authors: A Debnath, G Waghmare, H Wadhwa, S Asthana and A Arora
+   Venue: MileTS'21: 7th KDD Workshop on Mining and Learning from Time Series
+
+4. Low-Resource End-to-end Sanskrit TTS using Tacotron2, WaveGlow and Transfer Learning
+   Authors: A. Debnath, S. S. Patil, G. Nadiger and R. A. Ganesan
+   Venue: 2020 IEEE 17th India Council International Conference (INDICON)
+
+PATENTS
+
+1. System and Method for Web Data Extraction Using Meta-path Graph Data Model (Filed, 2024)
+2. Artificial intelligence based methods and systems for improving accuracy of authorization optimizer (Filed, 2024)
+3. Synthetic Time Series Generation using GANs (Under Process, 2023)
+
+AWARDS & ACHIEVEMENTS
+
+• S&P Global Inventor Award (2024)
+• 2H'23 EEA Data Innovation Champion Award (2023)
+• GATE 2018 - 99.17 Percentile (Among 1.5M+ candidates)
+• Assam CEE 2013 - Rank 154
+
+EDUCATION
+
+Master of Technology in Electrical Engineering | Indian Institute of Science | Aug 2018 – June 2020 | CGPA: 8.0/10.0
+Bachelor of Engineering in Electrical Engineering | Assam Engineering College | Aug 2013 – May 2017 | CGPA: 7.82/10.0
+
+CERTIFICATIONS
+
+• LLM/GenAI Engineer/Architect Certification - S&P Global
+• LLM/GenAI Business Practitioner - S&P Global
+
+---
+Generated from Ankur Debnath's Professional Portfolio
+Downloaded on: ${new Date().toLocaleDateString()}
+        `.trim();
+    }
+
     // Header Scroll Effect
     window.addEventListener('scroll', function() {
         if (!header) return;
@@ -102,127 +257,6 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     window.addEventListener('scroll', updateActiveNavLink);
-
-    // Enhanced CV Download Functionality
-    const downloadButton = document.getElementById('download-cv');
-    if (downloadButton) {
-        downloadButton.addEventListener('click', function(e) {
-            // Add visual feedback
-            const originalText = this.innerHTML;
-            this.innerHTML = '<span class="btn__icon">⬇️</span> Downloading...';
-            this.disabled = true;
-            
-            // Check if file exists, if not show notification
-            setTimeout(() => {
-                showNotification('CV download initiated! If the download doesn\'t start automatically, the file may need to be added to the documents folder.', 'info');
-                this.innerHTML = originalText;
-                this.disabled = false;
-            }, 1000);
-        });
-    }
-
-    // Image Loading and Fallback Handling
-    function setupImageFallbacks() {
-        // Profile Image
-        const profileImage = document.querySelector('.profile-image');
-        const profileFallback = document.querySelector('.profile-fallback');
-        
-        if (profileImage && profileFallback) {
-            profileImage.addEventListener('error', function() {
-                this.style.display = 'none';
-                profileFallback.style.display = 'flex';
-            });
-            
-            profileImage.addEventListener('load', function() {
-                this.style.display = 'block';
-                profileFallback.style.display = 'none';
-            });
-        }
-
-        // Company Logos
-        const companyLogos = document.querySelectorAll('.company-logo');
-        companyLogos.forEach(logo => {
-            const fallback = logo.nextElementSibling;
-            if (fallback && fallback.classList.contains('company-logo-fallback')) {
-                logo.addEventListener('error', function() {
-                    this.style.display = 'none';
-                    fallback.style.display = 'flex';
-                });
-                
-                logo.addEventListener('load', function() {
-                    this.style.display = 'block';
-                    fallback.style.display = 'none';
-                });
-            }
-        });
-
-        // Institution Logos
-        const institutionLogos = document.querySelectorAll('.institution-logo');
-        institutionLogos.forEach(logo => {
-            const fallback = logo.nextElementSibling;
-            if (fallback && fallback.classList.contains('institution-logo-fallback')) {
-                logo.addEventListener('error', function() {
-                    this.style.display = 'none';
-                    fallback.style.display = 'flex';
-                });
-                
-                logo.addEventListener('load', function() {
-                    this.style.display = 'block';
-                    fallback.style.display = 'none';
-                });
-            }
-        });
-    }
-
-    // Initialize image fallbacks
-    setupImageFallbacks();
-
-    // Skill Tag Hover Effects
-    function initializeSkillTagEffects() {
-        const skillTags = document.querySelectorAll('.skill-tag');
-        skillTags.forEach(tag => {
-            tag.addEventListener('mouseenter', function() {
-                // Create a subtle ripple effect
-                const ripple = document.createElement('span');
-                ripple.className = 'skill-tag-ripple';
-                ripple.style.cssText = `
-                    position: absolute;
-                    border-radius: 50%;
-                    background: rgba(255, 255, 255, 0.3);
-                    transform: scale(0);
-                    animation: ripple 0.6s linear;
-                    pointer-events: none;
-                `;
-                
-                this.style.position = 'relative';
-                this.appendChild(ripple);
-                
-                setTimeout(() => {
-                    if (ripple.parentNode) {
-                        ripple.parentNode.removeChild(ripple);
-                    }
-                }, 600);
-            });
-        });
-
-        // Add ripple animation styles
-        if (!document.getElementById('ripple-styles')) {
-            const rippleStyles = document.createElement('style');
-            rippleStyles.id = 'ripple-styles';
-            rippleStyles.textContent = `
-                @keyframes ripple {
-                    to {
-                        transform: scale(4);
-                        opacity: 0;
-                    }
-                }
-            `;
-            document.head.appendChild(rippleStyles);
-        }
-    }
-
-    // Initialize skill tag effects
-    initializeSkillTagEffects();
 
     // Intersection Observer for Scroll Animations
     const observerOptions = {
@@ -278,6 +312,15 @@ document.addEventListener('DOMContentLoaded', function() {
                 item.classList.add('slide-in-left');
                 observer.observe(item);
             }, index * 200);
+        });
+
+        // Featured Project cards
+        const featuredProjectCards = document.querySelectorAll('.academic-project-card');
+        featuredProjectCards.forEach((card, index) => {
+            setTimeout(() => {
+                card.classList.add('fade-in');
+                observer.observe(card);
+            }, index * 150);
         });
 
         // Publication cards
@@ -491,9 +534,6 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
-    // Make showNotification globally available
-    window.showNotification = showNotification;
-
     // Enhanced Contact Form Handling
     const contactForm = document.getElementById('contact-form');
     
@@ -600,7 +640,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // Enhanced Hover Effects for Cards
-    const interactiveCards = document.querySelectorAll('.project-card, .publication-card, .patent-card, .award-card, .education-card, .certification-card, .metric-card');
+    const interactiveCards = document.querySelectorAll('.project-card, .publication-card, .patent-card, .award-card, .education-card, .certification-card, .metric-card, .academic-project-card');
     
     interactiveCards.forEach(card => {
         card.addEventListener('mouseenter', function() {
@@ -609,6 +649,39 @@ document.addEventListener('DOMContentLoaded', function() {
         
         card.addEventListener('mouseleave', function() {
             this.style.transform = 'translateY(0)';
+        });
+    });
+
+    // Featured Project Cards Enhanced Interactions
+    const featuredProjectCards = document.querySelectorAll('.academic-project-card');
+    
+    featuredProjectCards.forEach(card => {
+        const image = card.querySelector('.project-image-placeholder');
+        const overlay = card.querySelector('.project-image-overlay');
+        
+        if (image && overlay) {
+            card.addEventListener('mouseenter', function() {
+                overlay.style.opacity = '1';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                overlay.style.opacity = '0';
+            });
+        }
+    });
+
+    // Skill Tags Hover Effects
+    const skillTags = document.querySelectorAll('.skill-tag');
+    
+    skillTags.forEach(tag => {
+        tag.addEventListener('mouseenter', function() {
+            this.style.transform = 'translateY(-2px)';
+            this.style.boxShadow = '0 4px 8px rgba(0, 0, 0, 0.1)';
+        });
+        
+        tag.addEventListener('mouseleave', function() {
+            this.style.transform = 'translateY(0)';
+            this.style.boxShadow = 'none';
         });
     });
 
@@ -664,13 +737,38 @@ document.addEventListener('DOMContentLoaded', function() {
 
     window.addEventListener('scroll', animateCounters);
 
+    // Enhanced GitHub Links Tracking
+    const githubLinks = document.querySelectorAll('a[href*="github.com"]');
+    
+    githubLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+            const projectTitle = this.closest('.academic-project-card')?.querySelector('.academic-project__title')?.textContent || 'Unknown Project';
+            console.log(`GitHub link clicked for: ${projectTitle}`);
+            
+            // Add visual feedback
+            const originalContent = this.innerHTML;
+            this.innerHTML = `
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="20,6 9,17 4,12"></polyline>
+                </svg>
+                Opening Repository...
+            `;
+            this.style.background = 'var(--color-success)';
+            
+            setTimeout(() => {
+                this.innerHTML = originalContent;
+                this.style.background = '';
+            }, 1500);
+        });
+    });
+
     // Parallax effect for hero section (desktop only)
     function handleParallax() {
         if (window.innerWidth > 768) {
             const heroSection = document.querySelector('.hero');
             if (heroSection) {
                 const scrolled = window.pageYOffset;
-                const rate = scrolled * -0.3;
+                const rate = scrolled * -0.2;
                 heroSection.style.transform = `translateY(${rate}px)`;
             }
         }
@@ -705,7 +803,7 @@ document.addEventListener('DOMContentLoaded', function() {
         if (!navToggle) return;
         
         if (window.innerWidth <= 768) {
-            navToggle.style.display = 'flex !important';
+            navToggle.style.display = 'flex';
             navToggle.style.visibility = 'visible';
         } else {
             navToggle.style.display = 'none';
@@ -751,6 +849,23 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
+    // Social Links Analytics
+    const socialLinks = document.querySelectorAll('.social-link, .footer__link');
+    
+    socialLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+            const platform = this.getAttribute('aria-label') || this.textContent.trim() || 'Unknown';
+            console.log(`Social link clicked: ${platform}`);
+        });
+    });
+
+    // Set first section (hero) to be visible immediately
+    const heroSection = document.querySelector('.hero');
+    if (heroSection) {
+        heroSection.style.opacity = '1';
+        heroSection.style.transform = 'translateY(0)';
+    }
+
     // Performance optimization: throttle scroll events
     let ticking = false;
     
@@ -773,82 +888,104 @@ document.addEventListener('DOMContentLoaded', function() {
     // Enhanced scroll handling
     window.addEventListener('scroll', requestTick);
 
-    // Project Card Click Interaction
-    const projectCards = document.querySelectorAll('.project-card');
-    projectCards.forEach(card => {
-        card.addEventListener('click', function() {
-            const title = this.querySelector('.project-card__title').textContent;
-            showNotification(`More details about "${title}" can be found in my portfolio or by contacting me directly.`, 'info');
+    // Image Loading Optimization for Project Placeholders
+    const projectImagePlaceholders = document.querySelectorAll('.project-image-placeholder');
+    
+    projectImagePlaceholders.forEach(placeholder => {
+        placeholder.addEventListener('error', function() {
+            // Fallback for missing images
+            this.style.background = 'linear-gradient(135deg, var(--color-bg-1), var(--color-bg-3))';
+            this.innerHTML = '<div style="text-align: center; color: var(--color-text-secondary); font-size: 14px;">Project Image<br>Coming Soon</div>';
         });
     });
 
-    // Publication Card Click Interaction
-    const publicationCards = document.querySelectorAll('.publication-card');
-    publicationCards.forEach(card => {
-        card.addEventListener('click', function() {
-            const title = this.querySelector('.publication-card__title').textContent;
-            showNotification(`"${title}" - Click on my Google Scholar link to access the full publication.`, 'info');
+    // Enhanced Button Interactions
+    const buttons = document.querySelectorAll('.btn');
+    
+    buttons.forEach(button => {
+        button.addEventListener('mousedown', function() {
+            this.style.transform = 'scale(0.98)';
         });
-    });
-
-    // Enhanced Social Links
-    const socialLinks = document.querySelectorAll('.social-link');
-    socialLinks.forEach(link => {
-        link.addEventListener('click', function(e) {
-            const platform = this.getAttribute('aria-label');
-            showNotification(`Opening ${platform} profile in new tab...`, 'info');
+        
+        button.addEventListener('mouseup', function() {
+            this.style.transform = 'scale(1)';
+        });
+        
+        button.addEventListener('mouseleave', function() {
+            this.style.transform = 'scale(1)';
         });
     });
 
     // Initialize page
     console.log('🚀 Ankur Debnath Portfolio initialized successfully!');
+    console.log('📚 Featured Projects section loaded with GitHub integration');
+    console.log('🎨 SVG icons from Lucide loaded successfully');
+    console.log('📄 Download CV functionality enabled');
+    console.log('📧 Contact information updated with correct links');
     
     // Add loading complete class
     setTimeout(() => {
         document.body.classList.add('loaded');
     }, 1000);
 
-    // Show welcome message with updated content details
+    // Show initial success message
     setTimeout(() => {
-        showNotification('Welcome! This portfolio features accurate contact details, structured image placeholders, comprehensive skill sets, and CV download functionality. All information is sourced directly from the CV.', 'success');
-    }, 2000);
+        showNotification('Welcome to Ankur Debnath\'s enhanced AI/ML Portfolio! Explore Featured Projects and download the CV.', 'info');
+    }, 2500);
 
-    // Image Loading Status
-    function trackImageLoading() {
-        const allImages = document.querySelectorAll('img');
-        let loadedImages = 0;
-        const totalImages = allImages.length;
-        
-        if (totalImages === 0) return;
-        
-        allImages.forEach(img => {
-            if (img.complete) {
-                loadedImages++;
-            } else {
-                img.addEventListener('load', () => {
-                    loadedImages++;
-                    if (loadedImages === totalImages) {
-                        console.log('✅ All images loaded successfully');
-                    }
-                });
-                
-                img.addEventListener('error', () => {
-                    loadedImages++;
-                    console.log(`⚠️ Image failed to load: ${img.src}`);
-                    if (loadedImages === totalImages) {
-                        console.log('📸 Image loading completed with some fallbacks');
-                    }
-                });
-            }
+    // Lazy Loading for Project Images
+    if ('IntersectionObserver' in window) {
+        const imageObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const img = entry.target;
+                    img.src = img.dataset.src || img.src;
+                    img.classList.remove('lazy');
+                    observer.unobserve(img);
+                }
+            });
         });
-        
-        if (loadedImages === totalImages) {
-            console.log('✅ All images were already loaded');
-        }
+
+        const lazyImages = document.querySelectorAll('img[data-src]');
+        lazyImages.forEach(img => imageObserver.observe(img));
     }
-    
-    // Track image loading after initialization
-    setTimeout(trackImageLoading, 1000);
+
+    // Featured Projects Section Specific Enhancements
+    const featuredSection = document.getElementById('projects');
+    if (featuredSection) {
+        // Add section-specific scroll animations
+        const projectCards = featuredSection.querySelectorAll('.academic-project-card');
+        
+        projectCards.forEach((card, index) => {
+            // Stagger the animation entrance
+            setTimeout(() => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(20px)';
+                card.style.transition = 'all 0.6s cubic-bezier(0.16, 1, 0.3, 1)';
+            }, index * 100);
+        });
+
+        // GitHub button click tracking and animation
+        const githubButtons = featuredSection.querySelectorAll('.btn[href*="github"]');
+        
+        githubButtons.forEach(button => {
+            button.addEventListener('click', function(e) {
+                // Track project interaction
+                const projectTitle = this.closest('.academic-project-card').querySelector('.academic-project__title').textContent;
+                console.log(`GitHub repository opened for featured project: ${projectTitle}`);
+                
+                // Add success animation
+                const originalContent = this.innerHTML;
+                this.innerHTML = '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20,6 9,17 4,12"></polyline></svg> Opening GitHub...';
+                this.style.background = 'var(--color-success)';
+                
+                setTimeout(() => {
+                    this.innerHTML = originalContent;
+                    this.style.background = '';
+                }, 1500);
+            });
+        });
+    }
 });
 
 // Additional utility functions
@@ -876,10 +1013,3 @@ function throttle(func, limit) {
         }
     }
 }
-
-// Export functions for potential external use
-window.portfolioUtils = {
-    debounce,
-    throttle,
-    showNotification: window.showNotification
-};
