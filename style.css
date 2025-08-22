@@ -944,6 +944,23 @@ select.form-control {
   flex-wrap: wrap;
 }
 
+/* CV Download Button Enhancement */
+.btn__icon {
+  margin-right: var(--space-8);
+  font-size: var(--font-size-md);
+}
+
+.btn--primary {
+  position: relative;
+  overflow: hidden;
+}
+
+.btn--primary:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+}
+
+/* Profile Image and Logo Styling */
 .hero__visual {
   display: flex;
   justify-content: center;
@@ -955,19 +972,34 @@ select.form-control {
   position: relative;
 }
 
-.avatar-placeholder {
+.profile-image-placeholder {
   width: 280px;
   height: 280px;
   border-radius: 50%;
+  position: relative;
+  border: 4px solid var(--color-primary);
+  box-shadow: var(--shadow-lg);
+  overflow: hidden;
+}
+
+.profile-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.profile-fallback {
+  width: 100%;
+  height: 100%;
   background: var(--color-bg-3);
-  display: flex;
+  display: none;
   align-items: center;
   justify-content: center;
   font-size: 48px;
   font-weight: var(--font-weight-bold);
   color: var(--color-text);
-  border: 4px solid var(--color-primary);
-  box-shadow: var(--shadow-lg);
+  border-radius: 50%;
 }
 
 .hero__social {
@@ -995,6 +1027,59 @@ select.form-control {
   background: var(--color-primary);
   color: var(--color-btn-primary-text);
   transform: translateY(-2px);
+}
+
+/* Company and Institution Logo Styling */
+.timeline__company-info {
+  width: 100%;
+}
+
+.timeline__meta {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-16);
+  margin-top: var(--space-8);
+}
+
+.timeline__company-logo {
+  flex-shrink: 0;
+}
+
+.company-logo,
+.institution-logo {
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+  border-radius: var(--radius-base);
+  border: 1px solid var(--color-card-border);
+  padding: var(--space-8);
+  background: var(--color-surface);
+}
+
+.company-logo-fallback,
+.institution-logo-fallback {
+  width: 60px;
+  height: 60px;
+  background: var(--color-bg-4);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text);
+  border-radius: var(--radius-base);
+  border: 1px solid var(--color-card-border);
+}
+
+.timeline__company-details {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.education-card__logo {
+  flex-shrink: 0;
 }
 
 /* Professional Summary */
@@ -1054,7 +1139,7 @@ select.form-control {
   font-weight: var(--font-weight-medium);
 }
 
-/* Skills Section */
+/* Skills Section - Updated for Skill Tags */
 .skills {
   padding: var(--space-32) 0;
   background: var(--color-background);
@@ -1071,6 +1156,12 @@ select.form-control {
   padding: var(--space-24);
   border-radius: var(--radius-lg);
   border: 1px solid var(--color-card-border);
+  transition: all var(--duration-normal) var(--ease-standard);
+}
+
+.skill-category:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
 }
 
 .skill-category__header {
@@ -1086,49 +1177,29 @@ select.form-control {
   color: var(--color-text);
 }
 
-.skills__list {
+.skill-tags {
   display: flex;
-  flex-direction: column;
-  gap: var(--space-16);
+  flex-wrap: wrap;
+  gap: var(--space-8);
 }
 
-.skill {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-6);
-}
-
-.skill__header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.skill__name {
-  font-weight: var(--font-weight-medium);
+.skill-tag {
+  padding: var(--space-6) var(--space-12);
+  background: var(--color-bg-3);
   color: var(--color-text);
-  font-size: var(--font-size-sm);
-}
-
-.skill__level {
+  border-radius: var(--radius-full);
   font-size: var(--font-size-xs);
-  color: var(--color-text-secondary);
   font-weight: var(--font-weight-medium);
+  border: 1px solid var(--color-card-border);
+  transition: all var(--duration-fast) var(--ease-standard);
+  cursor: default;
 }
 
-.skill__bar {
-  height: 6px;
-  background: var(--color-bg-2);
-  border-radius: var(--radius-full);
-  overflow: hidden;
-}
-
-.skill__progress {
-  height: 100%;
+.skill-tag:hover {
   background: var(--color-primary);
-  border-radius: var(--radius-full);
-  width: 0;
-  transition: width 1s var(--ease-standard);
+  color: var(--color-btn-primary-text);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-sm);
 }
 
 /* Experience Section */
@@ -1188,12 +1259,6 @@ select.form-control {
   font-weight: var(--font-weight-semibold);
   color: var(--color-text);
   margin-bottom: var(--space-8);
-}
-
-.timeline__meta {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-4);
 }
 
 .timeline__company {
@@ -1516,10 +1581,16 @@ select.form-control {
   box-shadow: var(--shadow-md);
 }
 
-.education-card__icon,
 .certification-card__icon {
   font-size: 40px;
   flex-shrink: 0;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-bg-5);
+  border-radius: var(--radius-base);
 }
 
 .education-card__content,
@@ -1755,9 +1826,12 @@ select.form-control {
     order: -1;
   }
 
-  .avatar-placeholder {
+  .profile-image-placeholder {
     width: 200px;
     height: 200px;
+  }
+
+  .profile-fallback {
     font-size: 36px;
   }
 
@@ -1767,6 +1841,21 @@ select.form-control {
 
   .hero__actions {
     justify-content: center;
+    flex-direction: column;
+  }
+
+  .timeline__meta {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-12);
+  }
+
+  .company-logo,
+  .institution-logo,
+  .company-logo-fallback,
+  .institution-logo-fallback {
+    width: 50px;
+    height: 50px;
   }
 
   .contact__content,
@@ -1824,7 +1913,7 @@ select.form-control {
     min-height: auto;
   }
 
-  .timeline__meta {
+  .timeline__company-details {
     gap: var(--space-2);
   }
 
@@ -1833,11 +1922,21 @@ select.form-control {
   .timeline__location {
     font-size: var(--font-size-xs);
   }
+
+  .education-card,
+  .certification-card {
+    flex-direction: column;
+    text-align: center;
+    gap: var(--space-12);
+  }
+
+  .education-card__logo {
+    align-self: center;
+  }
 }
 
 @media (max-width: 480px) {
   .hero__actions {
-    flex-direction: column;
     width: 100%;
   }
 
@@ -1880,13 +1979,6 @@ select.form-control {
     gap: var(--space-8);
   }
 
-  .education-card,
-  .certification-card {
-    flex-direction: column;
-    text-align: center;
-    gap: var(--space-12);
-  }
-
   .award-card {
     flex-direction: column;
     text-align: center;
@@ -1902,6 +1994,15 @@ select.form-control {
   .footer__links {
     flex-direction: column;
     gap: var(--space-12);
+  }
+
+  .skill-tags {
+    gap: var(--space-6);
+  }
+
+  .skill-tag {
+    font-size: 10px;
+    padding: var(--space-4) var(--space-8);
   }
 }
 
@@ -1969,18 +2070,49 @@ html {
   transform: translateY(-3px);
 }
 
-/* Loading animation for skill bars */
-@keyframes skillLoad {
+/* Loading animation for page */
+@keyframes fadeInUp {
   from {
-    width: 0;
+    opacity: 0;
+    transform: translateY(30px);
   }
   to {
-    width: var(--skill-width);
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 
-.skill__progress.animated {
-  animation: skillLoad 1s var(--ease-standard);
+.animated {
+  animation: fadeInUp 0.6s var(--ease-standard);
+}
+
+/* CV Download Button Pulse Effect */
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(var(--color-primary-rgb, 33, 128, 141), 0.7);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(var(--color-primary-rgb, 33, 128, 141), 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(var(--color-primary-rgb, 33, 128, 141), 0);
+  }
+}
+
+.btn--primary:hover {
+  animation: pulse 2s infinite;
+}
+
+/* Image placeholder enhancements */
+.profile-image-placeholder,
+.company-logo,
+.institution-logo {
+  transition: all var(--duration-normal) var(--ease-standard);
+}
+
+.profile-image-placeholder:hover {
+  transform: scale(1.02);
+  box-shadow: var(--shadow-lg);
 }
 
 /* Notification styles will be added by JavaScript */

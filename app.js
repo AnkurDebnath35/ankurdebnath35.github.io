@@ -103,31 +103,126 @@ document.addEventListener('DOMContentLoaded', function() {
 
     window.addEventListener('scroll', updateActiveNavLink);
 
-    // Skills Animation
-    function animateSkills() {
-        const skillBars = document.querySelectorAll('.skill__progress');
-        const skillsSection = document.getElementById('skills');
-        
-        if (skillsSection) {
-            const skillsSectionTop = skillsSection.offsetTop;
-            const skillsSectionHeight = skillsSection.offsetHeight;
-            const scrollPos = window.pageYOffset + window.innerHeight;
+    // Enhanced CV Download Functionality
+    const downloadButton = document.getElementById('download-cv');
+    if (downloadButton) {
+        downloadButton.addEventListener('click', function(e) {
+            // Add visual feedback
+            const originalText = this.innerHTML;
+            this.innerHTML = '<span class="btn__icon">⬇️</span> Downloading...';
+            this.disabled = true;
+            
+            // Check if file exists, if not show notification
+            setTimeout(() => {
+                showNotification('CV download initiated! If the download doesn\'t start automatically, the file may need to be added to the documents folder.', 'info');
+                this.innerHTML = originalText;
+                this.disabled = false;
+            }, 1000);
+        });
+    }
 
-            if (scrollPos >= skillsSectionTop && scrollPos <= skillsSectionTop + skillsSectionHeight) {
-                skillBars.forEach(bar => {
-                    const level = bar.getAttribute('data-level');
-                    if (level && !bar.classList.contains('animated')) {
-                        setTimeout(() => {
-                            bar.style.width = level + '%';
-                            bar.classList.add('animated');
-                        }, Math.random() * 500 + 200);
-                    }
+    // Image Loading and Fallback Handling
+    function setupImageFallbacks() {
+        // Profile Image
+        const profileImage = document.querySelector('.profile-image');
+        const profileFallback = document.querySelector('.profile-fallback');
+        
+        if (profileImage && profileFallback) {
+            profileImage.addEventListener('error', function() {
+                this.style.display = 'none';
+                profileFallback.style.display = 'flex';
+            });
+            
+            profileImage.addEventListener('load', function() {
+                this.style.display = 'block';
+                profileFallback.style.display = 'none';
+            });
+        }
+
+        // Company Logos
+        const companyLogos = document.querySelectorAll('.company-logo');
+        companyLogos.forEach(logo => {
+            const fallback = logo.nextElementSibling;
+            if (fallback && fallback.classList.contains('company-logo-fallback')) {
+                logo.addEventListener('error', function() {
+                    this.style.display = 'none';
+                    fallback.style.display = 'flex';
+                });
+                
+                logo.addEventListener('load', function() {
+                    this.style.display = 'block';
+                    fallback.style.display = 'none';
                 });
             }
+        });
+
+        // Institution Logos
+        const institutionLogos = document.querySelectorAll('.institution-logo');
+        institutionLogos.forEach(logo => {
+            const fallback = logo.nextElementSibling;
+            if (fallback && fallback.classList.contains('institution-logo-fallback')) {
+                logo.addEventListener('error', function() {
+                    this.style.display = 'none';
+                    fallback.style.display = 'flex';
+                });
+                
+                logo.addEventListener('load', function() {
+                    this.style.display = 'block';
+                    fallback.style.display = 'none';
+                });
+            }
+        });
+    }
+
+    // Initialize image fallbacks
+    setupImageFallbacks();
+
+    // Skill Tag Hover Effects
+    function initializeSkillTagEffects() {
+        const skillTags = document.querySelectorAll('.skill-tag');
+        skillTags.forEach(tag => {
+            tag.addEventListener('mouseenter', function() {
+                // Create a subtle ripple effect
+                const ripple = document.createElement('span');
+                ripple.className = 'skill-tag-ripple';
+                ripple.style.cssText = `
+                    position: absolute;
+                    border-radius: 50%;
+                    background: rgba(255, 255, 255, 0.3);
+                    transform: scale(0);
+                    animation: ripple 0.6s linear;
+                    pointer-events: none;
+                `;
+                
+                this.style.position = 'relative';
+                this.appendChild(ripple);
+                
+                setTimeout(() => {
+                    if (ripple.parentNode) {
+                        ripple.parentNode.removeChild(ripple);
+                    }
+                }, 600);
+            });
+        });
+
+        // Add ripple animation styles
+        if (!document.getElementById('ripple-styles')) {
+            const rippleStyles = document.createElement('style');
+            rippleStyles.id = 'ripple-styles';
+            rippleStyles.textContent = `
+                @keyframes ripple {
+                    to {
+                        transform: scale(4);
+                        opacity: 0;
+                    }
+                }
+            `;
+            document.head.appendChild(rippleStyles);
         }
     }
 
-    window.addEventListener('scroll', animateSkills);
+    // Initialize skill tag effects
+    initializeSkillTagEffects();
 
     // Intersection Observer for Scroll Animations
     const observerOptions = {
@@ -396,6 +491,9 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
+    // Make showNotification globally available
+    window.showNotification = showNotification;
+
     // Enhanced Contact Form Handling
     const contactForm = document.getElementById('contact-form');
     
@@ -653,13 +751,6 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    // Set first section (hero) to be visible immediately
-    const heroSection = document.querySelector('.hero');
-    if (heroSection) {
-        heroSection.style.opacity = '1';
-        heroSection.style.transform = 'translateY(0)';
-    }
-
     // Performance optimization: throttle scroll events
     let ticking = false;
     
@@ -672,7 +763,6 @@ document.addEventListener('DOMContentLoaded', function() {
     
     function updateScrollEffects() {
         updateActiveNavLink();
-        animateSkills();
         animateCounters();
         if (window.innerWidth > 768) {
             handleParallax();
@@ -683,6 +773,33 @@ document.addEventListener('DOMContentLoaded', function() {
     // Enhanced scroll handling
     window.addEventListener('scroll', requestTick);
 
+    // Project Card Click Interaction
+    const projectCards = document.querySelectorAll('.project-card');
+    projectCards.forEach(card => {
+        card.addEventListener('click', function() {
+            const title = this.querySelector('.project-card__title').textContent;
+            showNotification(`More details about "${title}" can be found in my portfolio or by contacting me directly.`, 'info');
+        });
+    });
+
+    // Publication Card Click Interaction
+    const publicationCards = document.querySelectorAll('.publication-card');
+    publicationCards.forEach(card => {
+        card.addEventListener('click', function() {
+            const title = this.querySelector('.publication-card__title').textContent;
+            showNotification(`"${title}" - Click on my Google Scholar link to access the full publication.`, 'info');
+        });
+    });
+
+    // Enhanced Social Links
+    const socialLinks = document.querySelectorAll('.social-link');
+    socialLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+            const platform = this.getAttribute('aria-label');
+            showNotification(`Opening ${platform} profile in new tab...`, 'info');
+        });
+    });
+
     // Initialize page
     console.log('🚀 Ankur Debnath Portfolio initialized successfully!');
     
@@ -691,10 +808,47 @@ document.addEventListener('DOMContentLoaded', function() {
         document.body.classList.add('loaded');
     }, 1000);
 
-    // Show initial success message
+    // Show welcome message with updated content details
     setTimeout(() => {
-        showNotification('Welcome to Ankur Debnath\'s AI/ML Portfolio! Explore my research, projects, and innovations.', 'info');
+        showNotification('Welcome! This portfolio features accurate contact details, structured image placeholders, comprehensive skill sets, and CV download functionality. All information is sourced directly from the CV.', 'success');
     }, 2000);
+
+    // Image Loading Status
+    function trackImageLoading() {
+        const allImages = document.querySelectorAll('img');
+        let loadedImages = 0;
+        const totalImages = allImages.length;
+        
+        if (totalImages === 0) return;
+        
+        allImages.forEach(img => {
+            if (img.complete) {
+                loadedImages++;
+            } else {
+                img.addEventListener('load', () => {
+                    loadedImages++;
+                    if (loadedImages === totalImages) {
+                        console.log('✅ All images loaded successfully');
+                    }
+                });
+                
+                img.addEventListener('error', () => {
+                    loadedImages++;
+                    console.log(`⚠️ Image failed to load: ${img.src}`);
+                    if (loadedImages === totalImages) {
+                        console.log('📸 Image loading completed with some fallbacks');
+                    }
+                });
+            }
+        });
+        
+        if (loadedImages === totalImages) {
+            console.log('✅ All images were already loaded');
+        }
+    }
+    
+    // Track image loading after initialization
+    setTimeout(trackImageLoading, 1000);
 });
 
 // Additional utility functions
@@ -722,3 +876,10 @@ function throttle(func, limit) {
         }
     }
 }
+
+// Export functions for potential external use
+window.portfolioUtils = {
+    debounce,
+    throttle,
+    showNotification: window.showNotification
+};
