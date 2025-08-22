@@ -98,7 +98,10 @@
                 </div>
                 <div class="hero__visual">
                     <div class="hero__avatar">
-                        <div class="avatar-placeholder">AD</div>
+                        <div class="profile-image-placeholder">
+                            <img src="./images/profile.jpg" alt="Ankur Debnath" class="profile-image" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                            <div class="profile-fallback">AD</div>
+                        </div>                        
                         <div class="hero__social">
                             <a href="https://linkedin.com/in/ankur-debnath-b0b694104" class="social-link" target="_blank" aria-label="LinkedIn">
                                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect width="4" height="12" x="2" y="9"></rect><circle cx="4" cy="4" r="2"></circle></svg>
@@ -802,11 +805,9 @@
                     </h3>
                     <div class="education__list">
                         <div class="education-card">
-                            <div class="education-card__icon">
-                                <div class="institution-logo-placeholder">
-                                    <img src="./images/iisc-logo.png" alt="Indian Institute of Science Logo" class="logo"/>
-                                </div>
-                            </div>
+                            <div class="education-card__logo">
+                                <img src="./images/iisc-logo.png" alt="Indian Institute of Science" class="institution-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                                <div class="institution-logo-fallback">IISc</div>
                             <div class="education-card__content">
                                 <h4 class="education-card__degree">Master of Technology in Electrical Engineering</h4>
                                 <div class="education-card__institution">Indian Institute of Science</div>
@@ -822,11 +823,9 @@
                         </div>
 
                         <div class="education-card">
-                            <div class="education-card__icon">
-                                <div class="institution-logo-placeholder">
-                                    <img src="./images/aec-logo.png" alt="Assam Engineering College Logo" class="logo"/>
-                                </div>
-                            </div>
+                            <div class="education-card__logo">
+                                <img src="./images/aec-logo.png" alt="Assam Engineering College" class="institution-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                                <div class="institution-logo-fallback">AEC</div>
                             <div class="education-card__content">
                                 <h4 class="education-card__degree">Bachelor of Engineering in Electrical Engineering</h4>
                                 <div class="education-card__institution">Assam Engineering College</div>
