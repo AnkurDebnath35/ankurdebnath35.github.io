@@ -315,7 +315,7 @@ Downloaded on: ${new Date().toLocaleDateString()}
         });
 
         // Featured Project cards
-        const featuredProjectCards = document.querySelectorAll('.academic-project-card');
+        const featuredProjectCards = document.querySelectorAll('.featured-project-card');
         featuredProjectCards.forEach((card, index) => {
             setTimeout(() => {
                 card.classList.add('fade-in');
@@ -639,8 +639,47 @@ Downloaded on: ${new Date().toLocaleDateString()}
         return emailRegex.test(email);
     }
 
+    // Enhanced Image Loading with Fallback
+    function setupImageFallbacks() {
+        const images = document.querySelectorAll('img');
+        
+        images.forEach(img => {
+            img.addEventListener('error', function() {
+                // Handle profile image fallback
+                if (this.classList.contains('profile-image')) {
+                    const avatarPlaceholder = document.createElement('div');
+                    avatarPlaceholder.className = 'avatar-placeholder';
+                    avatarPlaceholder.textContent = 'AD';
+                    this.parentNode.replaceChild(avatarPlaceholder, this);
+                    return;
+                }
+                
+                // Handle company logo fallback
+                if (this.classList.contains('company-logo') || this.classList.contains('institution-logo')) {
+                    const logoPlaceholder = document.createElement('div');
+                    logoPlaceholder.className = 'logo-placeholder';
+                    logoPlaceholder.textContent = this.alt || 'Logo';
+                    this.parentNode.replaceChild(logoPlaceholder, this);
+                    return;
+                }
+                
+                // Handle project image fallback
+                if (this.classList.contains('project-image')) {
+                    const imagePlaceholder = document.createElement('div');
+                    imagePlaceholder.className = 'project-image-placeholder';
+                    imagePlaceholder.innerHTML = '<div style="text-align: center; color: var(--color-text-secondary); font-size: 14px;">Project Image<br>Coming Soon</div>';
+                    this.parentNode.replaceChild(imagePlaceholder, this);
+                    return;
+                }
+            });
+        });
+    }
+
+    // Initialize image fallbacks
+    setupImageFallbacks();
+
     // Enhanced Hover Effects for Cards
-    const interactiveCards = document.querySelectorAll('.project-card, .publication-card, .patent-card, .award-card, .education-card, .certification-card, .metric-card, .academic-project-card');
+    const interactiveCards = document.querySelectorAll('.project-card, .publication-card, .patent-card, .award-card, .education-card, .certification-card, .metric-card, .featured-project-card');
     
     interactiveCards.forEach(card => {
         card.addEventListener('mouseenter', function() {
@@ -653,13 +692,12 @@ Downloaded on: ${new Date().toLocaleDateString()}
     });
 
     // Featured Project Cards Enhanced Interactions
-    const featuredProjectCards = document.querySelectorAll('.academic-project-card');
+    const featuredProjectCards = document.querySelectorAll('.featured-project-card');
     
     featuredProjectCards.forEach(card => {
-        const image = card.querySelector('.project-image-placeholder');
         const overlay = card.querySelector('.project-image-overlay');
         
-        if (image && overlay) {
+        if (overlay) {
             card.addEventListener('mouseenter', function() {
                 overlay.style.opacity = '1';
             });
@@ -742,7 +780,7 @@ Downloaded on: ${new Date().toLocaleDateString()}
     
     githubLinks.forEach(link => {
         link.addEventListener('click', function(e) {
-            const projectTitle = this.closest('.academic-project-card')?.querySelector('.academic-project__title')?.textContent || 'Unknown Project';
+            const projectTitle = this.closest('.featured-project-card')?.querySelector('.featured-project__title')?.textContent || 'Unknown Project';
             console.log(`GitHub link clicked for: ${projectTitle}`);
             
             // Add visual feedback
@@ -761,22 +799,6 @@ Downloaded on: ${new Date().toLocaleDateString()}
             }, 1500);
         });
     });
-
-    // Parallax effect for hero section (desktop only)
-    function handleParallax() {
-        if (window.innerWidth > 768) {
-            const heroSection = document.querySelector('.hero');
-            if (heroSection) {
-                const scrolled = window.pageYOffset;
-                const rate = scrolled * -0.2;
-                heroSection.style.transform = `translateY(${rate}px)`;
-            }
-        }
-    }
-
-    if (window.innerWidth > 768) {
-        window.addEventListener('scroll', handleParallax);
-    }
 
     // Dark mode detection and header adjustment
     function adjustHeaderForColorScheme() {
@@ -815,14 +837,6 @@ Downloaded on: ${new Date().toLocaleDateString()}
     // Resize handler
     window.addEventListener('resize', function() {
         checkMobileMenu();
-        
-        // Re-enable/disable parallax based on screen size
-        if (window.innerWidth <= 768) {
-            const heroSection = document.querySelector('.hero');
-            if (heroSection) {
-                heroSection.style.transform = 'none';
-            }
-        }
     });
 
     // Initial mobile menu check
@@ -859,13 +873,6 @@ Downloaded on: ${new Date().toLocaleDateString()}
         });
     });
 
-    // Set first section (hero) to be visible immediately
-    const heroSection = document.querySelector('.hero');
-    if (heroSection) {
-        heroSection.style.opacity = '1';
-        heroSection.style.transform = 'translateY(0)';
-    }
-
     // Performance optimization: throttle scroll events
     let ticking = false;
     
@@ -879,25 +886,11 @@ Downloaded on: ${new Date().toLocaleDateString()}
     function updateScrollEffects() {
         updateActiveNavLink();
         animateCounters();
-        if (window.innerWidth > 768) {
-            handleParallax();
-        }
         ticking = false;
     }
 
     // Enhanced scroll handling
     window.addEventListener('scroll', requestTick);
-
-    // Image Loading Optimization for Project Placeholders
-    const projectImagePlaceholders = document.querySelectorAll('.project-image-placeholder');
-    
-    projectImagePlaceholders.forEach(placeholder => {
-        placeholder.addEventListener('error', function() {
-            // Fallback for missing images
-            this.style.background = 'linear-gradient(135deg, var(--color-bg-1), var(--color-bg-3))';
-            this.innerHTML = '<div style="text-align: center; color: var(--color-text-secondary); font-size: 14px;">Project Image<br>Coming Soon</div>';
-        });
-    });
 
     // Enhanced Button Interactions
     const buttons = document.querySelectorAll('.btn');
@@ -918,8 +911,8 @@ Downloaded on: ${new Date().toLocaleDateString()}
 
     // Initialize page
     console.log('🚀 Ankur Debnath Portfolio initialized successfully!');
-    console.log('📚 Featured Projects section loaded with GitHub integration');
-    console.log('🎨 SVG icons from Lucide loaded successfully');
+    console.log('📚 Featured Projects section loaded with updated images');
+    console.log('🖼️ All placeholder images replaced with actual paths');
     console.log('📄 Download CV functionality enabled');
     console.log('📧 Contact information updated with correct links');
     
@@ -930,61 +923,26 @@ Downloaded on: ${new Date().toLocaleDateString()}
 
     // Show initial success message
     setTimeout(() => {
-        showNotification('Welcome to Ankur Debnath\'s enhanced AI/ML Portfolio! Explore Featured Projects and download the CV.', 'info');
+        showNotification('Portfolio updated with all project images! All placeholders have been replaced with proper image paths.', 'success');
     }, 2500);
 
-    // Lazy Loading for Project Images
+    // Lazy Loading for Images
     if ('IntersectionObserver' in window) {
         const imageObserver = new IntersectionObserver((entries, observer) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     const img = entry.target;
-                    img.src = img.dataset.src || img.src;
-                    img.classList.remove('lazy');
-                    observer.unobserve(img);
+                    if (img.dataset.src) {
+                        img.src = img.dataset.src;
+                        img.classList.remove('lazy');
+                        observer.unobserve(img);
+                    }
                 }
             });
         });
 
         const lazyImages = document.querySelectorAll('img[data-src]');
         lazyImages.forEach(img => imageObserver.observe(img));
-    }
-
-    // Featured Projects Section Specific Enhancements
-    const featuredSection = document.getElementById('projects');
-    if (featuredSection) {
-        // Add section-specific scroll animations
-        const projectCards = featuredSection.querySelectorAll('.academic-project-card');
-        
-        projectCards.forEach((card, index) => {
-            // Stagger the animation entrance
-            setTimeout(() => {
-                card.style.opacity = '0';
-                card.style.transform = 'translateY(20px)';
-                card.style.transition = 'all 0.6s cubic-bezier(0.16, 1, 0.3, 1)';
-            }, index * 100);
-        });
-
-        // GitHub button click tracking and animation
-        const githubButtons = featuredSection.querySelectorAll('.btn[href*="github"]');
-        
-        githubButtons.forEach(button => {
-            button.addEventListener('click', function(e) {
-                // Track project interaction
-                const projectTitle = this.closest('.academic-project-card').querySelector('.academic-project__title').textContent;
-                console.log(`GitHub repository opened for featured project: ${projectTitle}`);
-                
-                // Add success animation
-                const originalContent = this.innerHTML;
-                this.innerHTML = '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20,6 9,17 4,12"></polyline></svg> Opening GitHub...';
-                this.style.background = 'var(--color-success)';
-                
-                setTimeout(() => {
-                    this.innerHTML = originalContent;
-                    this.style.background = '';
-                }, 1500);
-            });
-        });
     }
 });
 
