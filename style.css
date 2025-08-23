@@ -754,6 +754,17 @@ select.form-control {
   font-weight: var(--font-weight-bold);
   margin-bottom: var(--space-12);
   color: var(--color-text);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-8);
+}
+
+.section__title svg {
+  width: 32px;
+  height: 32px;
+  stroke: var(--color-primary);
+  flex-shrink: 0;
 }
 
 .section__subtitle {
@@ -1356,7 +1367,7 @@ select.form-control {
   font-weight: var(--font-weight-medium);
 }
 
-/* Featured Projects Section */
+/* Featured Projects Section - FIXED GRID LAYOUT */
 .projects {
   padding: var(--space-32) 0;
   background: var(--color-background);
@@ -1364,8 +1375,10 @@ select.form-control {
 
 .featured-projects__grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
-  gap: var(--space-32);
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: var(--space-24);
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .featured-project-card {
@@ -1375,6 +1388,7 @@ select.form-control {
   overflow: hidden;
   transition: all var(--duration-normal) var(--ease-standard);
   box-shadow: var(--shadow-sm);
+  width: 100%;
 }
 
 .featured-project-card:hover {
@@ -2217,6 +2231,10 @@ select.form-control {
 
   .featured-project__title {
     font-size: var(--font-size-md);
+  }
+
+  .featured-projects__grid {
+    grid-template-columns: 1fr;
   }
 }
 
