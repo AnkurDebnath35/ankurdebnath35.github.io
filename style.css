@@ -1410,6 +1410,12 @@ select.form-control {
   transition: transform var(--duration-normal) var(--ease-standard);
 }
 
+.project-image--graph {
+  object-fit: contain;
+  padding: var(--space-8);
+  background: #102a43;
+}
+
 .featured-project-card:hover .project-image {
   transform: scale(1.05);
 }
