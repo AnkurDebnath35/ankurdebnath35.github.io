@@ -461,39 +461,17 @@ document.addEventListener('DOMContentLoaded', function() {
                 return;
             }
             
-            // Simulate form submission with enhanced feedback
             const submitBtn = this.querySelector('button[type="submit"]');
-            const originalText = submitBtn.textContent;
-            
-            submitBtn.innerHTML = '<span style="display: inline-flex; align-items: center; gap: 8px;">Sending... <span style="animation: spin 1s linear infinite;">⟳</span></span>';
+            const mailSubject = encodeURIComponent(`[Portfolio] ${subject}`);
+            const mailBody = encodeURIComponent(`Hello Ankur,\n\nName: ${name}\nEmail: ${email}\n\n${message}`);
+            const mailtoUrl = `mailto:ankurdebnath35@gmail.com?subject=${mailSubject}&body=${mailBody}`;
+
             submitBtn.disabled = true;
-            submitBtn.style.opacity = '0.7';
-            
-            // Add spinning animation
-            const spinStyles = document.createElement('style');
-            spinStyles.textContent = `
-                @keyframes spin {
-                    from { transform: rotate(0deg); }
-                    to { transform: rotate(360deg); }
-                }
-            `;
-            if (!document.getElementById('spin-styles')) {
-                spinStyles.id = 'spin-styles';
-                document.head.appendChild(spinStyles);
-            }
-            
+            window.location.href = mailtoUrl;
+            showNotification('Opening your email client with a prepared draft.', 'success');
             setTimeout(() => {
-                showNotification(`Thank you ${name}! Your message has been sent successfully. I'll get back to you soon regarding "${subject}".`, 'success');
-                this.reset();
-                submitBtn.textContent = originalText;
                 submitBtn.disabled = false;
-                submitBtn.style.opacity = '1';
-                
-                // Reset any error styling
-                formInputs.forEach(input => {
-                    input.style.borderColor = '';
-                });
-            }, 2000);
+            }, 1000);
         });
     }
 
@@ -739,11 +717,6 @@ document.addEventListener('DOMContentLoaded', function() {
     setTimeout(() => {
         document.body.classList.add('loaded');
     }, 1000);
-
-    // Show initial success message
-    setTimeout(() => {
-        showNotification('Portfolio loaded successfully! All 5 Featured Projects are now visible with working GitHub links.', 'success');
-    }, 2500);
 
     // Lazy Loading for Images
     if ('IntersectionObserver' in window) {
