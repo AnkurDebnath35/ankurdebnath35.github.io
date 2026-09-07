@@ -1,0 +1,202 @@
+%-------------------------
+% Simple Modern ATS-Friendly Resume (Working Layout)
+% Author: Ankur Debnath
+% Design: Clean single-column with color accents
+% License: MIT
+%------------------------
+
+\documentclass[letterpaper,11pt]{article}
+
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\usepackage[english]{babel}
+\usepackage{xcolor}
+\usepackage{geometry}
+\input{glyphtounicode}
+
+% Define color palette
+\definecolor{headerblue}{RGB}{44, 62, 80}
+\definecolor{accentblue}{RGB}{52, 152, 219}
+\definecolor{darktext}{RGB}{44, 62, 80}
+\definecolor{mediumgray}{RGB}{127, 140, 141}
+
+% Page setup
+\geometry{left=0.75in, right=0.75in, top=0.6in, bottom=0.6in}
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% Font
+\usepackage{times}
+
+% Section formatting
+\titleformat{\section}{\vspace{-4pt}\scshape\raggedright\large\color{headerblue}}{}{0em}{}[\color{headerblue}\titlerule \vspace{-5pt}]
+
+% Custom commands
+\newcommand{\resumeItem}[1]{\item\small{#1 \vspace{-2pt}}}
+\newcommand{\resumeSubheading}[4]{
+  \vspace{-2pt}\item
+    \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & #2 \\
+      \textit{\small#3} & \textit{\small #4} \\
+    \end{tabular*}\vspace{-7pt}
+}
+\newcommand{\resumeSubItem}[1]{\resumeItem{#1}\vspace{-4pt}}
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.15in, label={}]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
+
+% Ensure PDF is machine readable
+\pdfgentounicode=1
+
+%-------------------------------------------
+%%%%%%  RESUME STARTS HERE  %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+%----------HEADING----------
+\begin{center}
+    {\Huge \textbf{\color{headerblue}Ankur Debnath}} \\ \vspace{1pt}
+    {\large AI/ML Leader \& Data Science Executive} \\ \vspace{1pt}
+    \small \color{darktext}+91-7002296838 $|$ ankurdebnath35@gmail.com \\
+    LinkedIn: linkedin.com/in/ankur-debnath-b0b694104 $|$ Google Scholar Profile
+\end{center}
+
+%-----------PROFESSIONAL SUMMARY-----------
+\section{Professional Summary}
+\small{Innovative AI/ML leader with 5+ years of experience leading end-to-end AI platforms at S\&P Global. Architected systems processing millions of documents, generating \textbf{\$12M revenue opportunities} and saving \textbf{40 FTEs}. Proven track record in LLMs, GNNs, NLP, ASR, and research with \textbf{4 publications} and \textbf{3+ patents}.}
+
+%-----------KEY ACHIEVEMENTS & AWARDS-----------
+\section{Key Achievements \& Awards}
+  \resumeSubHeadingListStart
+    \resumeItem{Filed \textbf{3+ US patents} on AI innovations including Web Data Extraction and Authorization Optimization}
+    \resumeItem{\textbf{4 publications} in premier venues: KDD, CIKM, ECML-PKDD, IEEE INDICON}
+    \resumeItem{\textbf{S\&P Global Inventor Award} and \textbf{2H'23 EEA Data Innovation Champion Award}}
+    \resumeItem{\textbf{99.17 percentile in GATE 2018} Electrical Engineering (among 1.5M+ candidates)}
+  \resumeSubHeadingListEnd
+
+%-----------EXPERIENCE-----------
+\section{Experience}
+  \resumeSubHeadingListStart
+
+    \resumeSubheading
+      {Lead Data Scientist, Senior Data Scientist}{Sep 2022 -- Present}
+      {S\&P Global - Enterprise Data Organisation}{Gurugram, India}
+      \resumeItemListStart
+        \resumeItem{\textbf{\color{accentblue}AI Live Transcripts (Ongoing):} Designed, developed and productionalizing live transcription system to transcribe Corporate Calls for S\&P Capital IQ Pro product}
+        \resumeItem{Comprises Audio Sourcing (Web hosted calls), Lambdas \& Step Functions as orchestrators, Kubernetes as central hub, Celery-Redis for task management, OpenAI's \textbf{Whisper large v3-turbo} as ASR on EC2 instance}
+        \resumeItem{End-to-end automation pipeline on Human-out-of-the-loop principle targeting \textbf{\$12 Million annual opportunity}}
+        \resumeItem{Currently exploring Agentic architectures to leverage LLMs for transcript post-processing and correction}
+        
+        \resumeItem{\textbf{\color{accentblue}DocSense - Document Relevancy \& Routing (Ongoing):} Designed and deployed platform for document routing, replacing legacy Content Collection Workflow}
+        \resumeItem{\textbf{80\% reduction in noise} and \textbf{36K man-hours saved} in first use case implementation}
+        \resumeItem{Comprises Document Deduplication, Document Relevancy Model Zoo, Document Routing and Feedback for Model Monitoring}
+        \resumeItem{Single platform encapsulating various document routing use-cases using rich tech-stack: LLMs, transformer-based models, VectorDB, Dash for Model Monitoring, Celery-Redis Asynchronous Task Management, Kubernetes deployment}
+        
+        \resumeItem{\textbf{\color{accentblue}Web IQ - Bank Rates \& ETF Benchmarking Solutions:} Built end-to-end bank rates extraction from websites with alert system for change detection over time}
+        \resumeItem{Covered \textbf{153K URLs and 2.49M domains} with \textbf{90\%+ success rate}, \textbf{27\% TAT increase}}
+        \resumeItem{Designed and deployed ETF data extraction pipeline following same architecture}
+        \resumeItem{Avoided cost of \textbf{40 FTEs}, increased dataset update frequency from half-yearly (legacy manual) to daily}
+        \resumeItem{Expanded coverage from 300 ETFs to \textbf{7000 ETFs on per-day basis}}
+        \resumeItem{Used \textbf{graph embeddings} for identifying areas of interest and tracking changes on webpage over time}
+        
+        \resumeItem{\textbf{\color{accentblue}Research and Leadership:} Lead team of \textbf{5 Data Scientists and Data Engineers}, mentored and supported upskilling initiatives}
+        \resumeItem{Initiated and contributed to development of critical boilerplate pipelines for asynchronous task management, web data extraction and pipeline orchestration}
+        \resumeItem{Filed system patent: ``System and Method for Web Data Extraction Using Meta-path Graph Data Model''}
+      \resumeItemListEnd
+
+    \resumeSubheading
+      {Data Scientist II - AI Specialist, Product Development}{Aug 2020 -- Sep 2022}
+      {MasterCard AI Garage}{Gurugram, India}
+      \resumeItemListStart
+        \resumeItem{\textbf{\color{accentblue}ESG Q\&A System For Investors:} Successfully built and prototyped end-to-end Neural Q\&A system on Mastercard reports}
+        \resumeItem{Used deep learning techniques including \textbf{BERT}, advanced document preprocessing, deployed as Streamlit application}
+        
+        \resumeItem{\textbf{\color{accentblue}Intelligent Retry Scores:} Modeled customer behavior on failed retrial recurring payments across merchants (Apple, Google, Amazon, Netflix, Spotify)}
+        \resumeItem{Used tree models and deep models for predicting days to approval for customers across merchants}
+        
+        \resumeItem{\textbf{\color{accentblue}Research Leadership:} Led research thread on \textbf{temporal data synthesis using GANs}, published 2 intermediary workshop papers at KDD and ECML-PKDD}
+        \resumeItem{Led team mentoring freshers, interns and peers towards quality research}
+        \resumeItem{Working on research thread on \textbf{Neural Temporal Point Processes}, published CORE-A conference paper at CIKM-2022}
+        \resumeItem{Filed \textbf{3 US Patents} on Next Transaction prediction and Synthetic Time Series Generation}
+      \resumeItemListEnd
+
+  \resumeSubHeadingListEnd
+
+%-----------CORE COMPETENCIES-----------
+\section{Core Competencies}
+ \begin{itemize}[leftmargin=0.15in, label={}]
+    \small{\item{
+     \textbf{\color{accentblue}AI/ML Technologies}{: Large Language Models, Graph Neural Networks, Neural Networks, Deep Learning, NLP, Speech Processing, Computer Vision} \\
+     \textbf{\color{accentblue}Programming Languages}{: Python (NumPy, SciPy, Pandas, Scikit-Learn), C, C++, SQL, PySpark} \\
+     \textbf{\color{accentblue}ML Frameworks}{: TensorFlow, PyTorch, Keras, LangChain, LangGraphs} \\
+     \textbf{\color{accentblue}Cloud \& DevOps}{: AWS (Lambda, SageMaker, API Gateway, EKS, S3, ECR, SQS), Kubernetes, Docker, Apache Airflow} \\
+     \textbf{\color{accentblue}Databases \& Big Data}{: SQL, Impala, Hadoop, Redis, Vector Databases, ElastiCache}
+    }}
+ \end{itemize}
+
+%-----------EDUCATION-----------
+\section{Education}
+  \resumeSubHeadingListStart
+    \resumeSubheading
+      {Master of Technology in Electrical Engineering}{Aug 2018 -- June 2020}
+      {Indian Institute of Science, CGPA: 8.0/10.0}{Bengaluru, India}
+    \resumeSubheading
+      {Bachelor of Engineering in Electrical Engineering}{Aug 2013 -- May 2017}
+      {Assam Engineering College, CGPA: 7.82/10.0}{Guwahati, Assam, India}
+  \resumeSubHeadingListEnd
+
+%-----------PUBLICATIONS & PATENTS-----------
+\section{Publications \& Patents}
+  \resumeSubHeadingListStart
+    \resumeSubheading
+      {Modeling Inter-Dependence Between Time and Mark in Multivariate Temporal Point Processes}{2022}
+      {Waghmare G., Debnath A., Asthana S., and Malhotra A.}{CIKM 2022}
+    \resumeSubheading
+      {Adversarial Generation of Temporal Data: A Critique on Fidelity of Synthetic Data}{2021}
+      {Debnath A., Gupta N., Waghmare G., Wadhwa H., Asthana S., Arora A.}{ECML PKDD 2021}
+    \resumeSubheading
+      {Exploring Generative Data Augmentation in Multivariate Time Series Forecasting}{2021}
+      {A Debnath, G Waghmare, H Wadhwa, S Asthana and A Arora}{KDD MileTS Workshop 2021}
+    \resumeSubheading
+      {Low-Resource End-to-end Sanskrit TTS using Tacotron2, WaveGlow and Transfer Learning}{2020}
+      {A. Debnath, S. S. Patil, G. Nadiger and R. A. Ganesan}{IEEE INDICON 2020}
+    \resumeSubheading
+      {US Patent: Artificial Intelligence Based Methods for Authorization Optimizer}{2024}
+      {US Patent Application 18/473,737}{}
+  \resumeSubHeadingListEnd
+
+%-----------SELECT PROJECTS-----------
+\section{Academic Projects}
+    \resumeSubHeadingListStart
+      \resumeSubheading
+          {Good Quality End-to-end Hindi TTS using Tacotron2, WaveGlow and Transfer Learning}{Aug 2019 -- June 2020}
+          {Designed, developed and tested end-to-end TTS for Hindi achieving MOS of 4.45 with 20h data}{}
+      \resumeSubheading
+          {Text-Independent Speaker Identification using Scattering Transform}{Jan 2019 -- May 2019}
+          {Text-independent speaker identification achieving accuracy of 99.78\%}{}
+      \resumeSubheading
+          {Relation Extraction using Neural Networks}{Jan 2019 -- May 2019}
+          {Analyzed PCNN, BiGRU and GCN architectures for relation extraction tasks}{}
+      \resumeSubheading
+          {Explainable Deep Learning}{Jan 2019 -- May 2019}
+          {Addressed model explainability with focus on local and global explanations}{}
+    \resumeSubHeadingListEnd
+
+%-----------CERTIFICATIONS-----------
+\section{Certifications \& Awards}
+  \resumeSubHeadingListStart
+    \resumeItem{\textbf{S\&P Global Inventor Award} - Recognition for patent filing commitment}
+    \resumeItem{\textbf{2H'23 EEA Data Innovation Champion Award} - Outstanding contributions in operational efficiency}
+    \resumeItem{\textbf{LLM/GenAI Engineer/Architect Certification} - S\&P Global}
+    \resumeItem{\textbf{LLM/GenAI Business Practitioner Certification} - S\&P Global}
+  \resumeSubHeadingListEnd
+
+%-------------------------------------------
+\end{document}

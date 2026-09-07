@@ -1,0 +1,468 @@
+ %------------------------------------------------------------------------------
+% CV in Latex
+% Author : Charles Rambo
+% Based off of: https://github.com/sb2nov/resume and Jake's Resume on Overleaf
+% Most recently updated version may be found at https://github.com/fizixmastr 
+% License : MIT
+%------------------------------------------------------------------------------
+
+\documentclass[A4,8pt]{article}
+%\documentclass[letterpaper,11pt]{article} %For use in US
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage{hyperref}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage[english]{babel}
+\usepackage{tabularx}
+\usepackage{tikz}
+\usepackage[xetex]{hyperref}
+\usepackage{academicons}
+\input{glyphtounicode}
+\definecolor{linkcolour}{rgb}{0,0.2,0.6}
+\hypersetup{colorlinks,breaklinks,urlcolor=linkcolour, linkcolor=linkcolour}
+
+
+% serif
+ \usepackage{palatino}
+% \usepackage{times} %This is the default as well
+% \usepackage{charter}
+
+% sans-serif
+% \usepackage{helvet}
+% \usepackage[sfdefault]{noto-sans}
+% \usepackage[default]{sourcesanspro}
+
+%-----PAGE SETUP---------------------------------------------------------------
+
+% Adjust margins
+\addtolength{\oddsidemargin}{-1.5cm}
+\addtolength{\evensidemargin}{-1cm}
+\addtolength{\textwidth}{3cm}
+\addtolength{\topmargin}{-2cm}
+\addtolength{\textheight}{3cm}
+
+% Margins for US Letter size
+%\addtolength{\oddsidemargin}{-0.5in}
+%\addtolength{\evensidemargin}{-0.5in}
+%\addtolength{\textwidth}{1in}
+%\addtolength{\topmargin}{-.5in}
+%\addtolength{\textheight}{1.0in}
+
+\urlstyle{same}
+
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0cm}
+
+% Sections formatting
+\titleformat{\section}{
+  \vspace{-4pt}\scshape\raggedright\large
+}{}{0em}{}[\color{black}\titlerule \vspace{-5pt}]
+
+% Ensure that .pdf is machine readable/ATS parsable
+\pdfgentounicode=1
+
+%-----CUSTOM COMMANDS FOR FORMATTING SECTIONS----------------------------------
+\newcommand{\CVItem}[1]{
+  \item\small{
+    {#1 \vspace{-2pt}}
+  }
+}
+
+\newcommand{\CVSubheading}[4]{
+  \vspace{-2pt}\item
+    \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & #2 \\
+      \small#3 & \small #4 \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\CVSubSubheading}[2]{
+    \item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \text{\small#1} & \text{\small #2} \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+
+\newcommand{\CVSubItem}[1]{\CVItem{#1}\vspace{-4pt}}
+
+\renewcommand\labelitemii{$\vcenter{\hbox{\tiny$\bullet$}}$}
+
+\newcommand{\CVSubHeadingListStart}{\begin{itemize}[leftmargin=0.5cm, label={}]}
+% \newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.15in, label={}]} % Uncomment for US
+\newcommand{\CVSubHeadingListEnd}{\end{itemize}}
+\newcommand{\CVItemListStart}{\begin{itemize}}
+\newcommand{\CVItemListEnd}{\end{itemize}\vspace{-5pt}}
+\newcommand{\specialcell}[2][c]
+  {
+  \vspace{-2pt}\item
+    \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & #2 \\
+    \end{tabular*}\vspace{-7pt}
+}
+%------------------------------------------------------------------------------
+% CV STARTS HERE  %
+%------------------------------------------------------------------------------
+\usepackage{fontawesome}
+\begin{document}
+
+%-----HEADING------------------------------------------------------------------
+
+
+% \begin{minipage}[c]{0.05\textwidth}
+% \-\
+% \end{minipage}
+% \begin{minipage}[c]{0.2\textwidth}
+% \begin{tikzpicture}
+%     \clip (0,0) circle (1.75cm);
+%     \node at (0,-.7) {\includegraphics[width = 9cm]{portrait}}; 
+%     % if necessary the picture may be moved by changing the at (coordinates)
+%     % width defines the 'zoom' of the picture
+% \end{tikzpicture}
+% \hfill\vline\hfill
+% \end{minipage}
+% \begin{minipage}[c]{0.4\textwidth}
+%     \textbf{\Huge \scshape{Anup Patel}} \\ \vspace{1pt} 
+%     % \scshape sets small capital letters, remove if desired
+%     \small{+91 7665832697} \\
+%     \href{mailto:anup2323@gmail.com}{\underline{anup2323@gmail.com}}\\
+%     % Be sure to use a professional *personal* email address
+%     \href{https://www.linkedin.com/in/anup-patel/}{\underline{linkedin.com/in/anup-patel}} \\
+%     % you should adjust you linked in profile name to be professional and recognizable
+%     \href{https://github.com/anup-patel}{\underline{github.com/anup-patel}}
+% \end{minipage}
+
+\begin{center}
+% \textbf{\huge Anup Patel } \\
+% \hfill
+
+\par{\centering
+		{\Huge \textsc{Ankur} \textsc{Debnath}
+	}\bigskip\par}
+	%\vspace{-9pt}
+\\ \faEnvelope \space \small\textbf{\texttt{ ankurdebnath35@gmail.com} }\space \space
+\faPhoneSquare \space \small \textbf{\texttt{7002296838}} \\
+\newcommand{\googlescholar}{\includegraphics[height=10pt]{icons8-google-scholar-24.png}} \googlescholar  \space\small\textbf{\texttt{https://scholar.google.com/citations$?$hl$=$en\&user$=$9$_$SZhIYAAAAJ}}\\
+%\faGoogleScholar \space \textbf{\url{https://scholar.google.com/citations?hl=en&user=9_SZhIYAAAAJ } } \\
+ \space \square  \faLinkedinSquare \space \space \small\textbf{\texttt{https://www.linkedin.com/in/ankur-debnath-b0b694104}} \\
+
+%\includegraphics[width=.07\textwidth]{nit.png}\\
+\end{center}
+\vspace{-15pt}
+% \hfill \smash{\includegraphics[width=0.12\paperwidth]{radha_pic.jpg}}
+
+% Without picture
+%\begin{center}
+%    \textbf{\Huge \scshape Charles Rambo} \\ \vspace{1pt} %\scshape sets small capital letters, remove if desired
+%    \small +1 123-456-7890 $|$ 
+%    \href{mailto:you@provider.com}{\underline{you@provider.com}} $|$\\
+%    % Be sure to use a professional *personal* email address
+%    \href{https://linkedin.com/in/your-name-here}{\underline{linkedin.com/in/charles-rambo}} $|$
+%    % you should adjust you linked in profile name to be professional and recognizable
+%    \href{https://github.com/fizixmastr}{\underline{github.com/fizixmastr}}
+%\end{center}
+
+
+%-----WORK EXPERIENCE----------------------------------------------------------
+\section{Bio}
+\small{Innovative AI/ML leader with almost 5 years of specialized experience in AI/ML, NLP, GNNs and LLMs. Currently leading the AI Live Transcripts project and heading the DocSense team at S\&P Global, where I architect and deploy scalable AI solutions processing millions of documents. Demonstrated expertise in building end-to-end AI platforms involving Language Models, Graph Neural Networks in the NLP and time series domains. Strong track record of leading diverse teams, mentoring AI professionals, and driving technological innovation as evidenced by multiple academic publications and industry patents. Proven ability to translate complex AI concepts into business solutions while maintaining focus on value-driven AI development and deployment. Seeking to leverage deep technical expertise and leadership experience to drive cutting-edge Generative AI initiatives in a global technology environment. An avid techno-enthusiast and passionate about an innovative and impactful career in AI and related fields.}
+\section{Work Experience}
+  \CVSubHeadingListStart
+%    \CVSubheading %Example
+%      {What you did}{When you worked there}
+%      {Who you worked for}{Where they are located}
+%      \CVItemListStart
+%        \CVItem{Why it is important to this employer}
+%      \CVItemListEnd
+     \CVSubheading
+      {Lead Data Scientist, Senior Data Scientist}{Sep 2022 -- Present}
+      {\textbf{Enterprise Data Organisation (EDO), S\&P Global} }{Gurugram, India}
+      \CVItemListStart
+         \CVItem{AI Live Transcripts (\textbf{Ongoing})}
+         \CVItemListStart
+        \CVItem{Designed, developed and productionalizing a live transcription system to transcribe Corporate Calls for the product in \textbf{\textit{S\&P Capital IQ Pro\textsuperscript{\textregistered}}}}
+        \CVItem{Comprises of Audio Sourcing (Web hosted calls), Lambdas \& Step Functions as orchestrators, Kubernetes as a central hub, Celery-redis for task management and \textit{OpenAI's} \textbf{Whisper large v3-turbo} as the ASR on ec2 instance.}
+        \CVItem{An end-to-end automation pipeline designed on Human-out-of-the-loop principle to reduce high human dependency on existing product, targeted towards an opportunity of \$12 Million every year.}
+        \CVItem{Currently exploring Agentic architectures to leverage LLMs for transcript post-processing and correction.}
+        \CVItemListEnd
+        \vspace{5pt}
+         \CVItem{DocSense - \textit{Document Relevancy \& Routing} (\textbf{Ongoing})}
+         \CVItemListStart
+        \CVItem{Designed and deployed a platform for document routing, replacing legacy Content Collection Workflow}
+        \CVItem{80\% reduction in noise and +36k man hours saved in the first use case implemented as a part of DocSense platform.}
+        \CVItem{Comprises of Document Deduplication, Document Relevancy Model Zoo, Document Routing and Feedback for Model Monitoring}
+        \CVItem{A single platform for encapsulating various document routing use-cases}
+        \CVItem{Uses a rich tech-stack including, LLMs, transformer-based models, VectorDB, Dash for Model Monitoring, Celery-Redis Asynchronous Task Management and Kubernetes for deployment.}
+        \CVItemListEnd
+        \vspace{5pt}
+        \CVItem{Web IQ - \textit{Bank Rates}, \textit{ETF Benchmarking Solutions}}
+        \CVItemListStart
+        \CVItem{Successfully built and deployed end-to-end bank rates extraction from websites and alert on any change detected over time.}
+        \CVItem{Covered 153K urls and 2.49M domains with over 90\% success rate with increase of 27\% TAT.}
+        \CVItem{Designed and deployed an ETF data extraction pipeline following the same lines.}
+        \CVItem{Avoided cost of 40 FTEs and increased dataset updation frequency from half-yearly(legacy manual process) to daily. Also increased coverage of 300 ETFs to 7000 ETFs on per-day basis.}
+        \CVItem{Used graph embeddings for identifiying areas of interest and track changes on webpage over time}
+        \CVItemListEnd
+        \vspace{5pt}
+        \CVItem{Research and Leadership}
+         \CVItemListStart
+        \CVItem{Lead a team of 5 Data Scientists and Data Engineers and mentored and supported them towards upskilling and being productive}
+        \CVItem{Initiated and contributed towards development of critical boilerplate pipelines for asynchronous task management, web data extraction and pipeline orchestration. The same is now being used for creating large and scalable pipelines.}
+
+        \CVItem{Filed a system patent based on Web IQ "System and Method for Web Data Extraction Using Meta-path Graph Data Model"}
+        \CVItemListEnd
+       
+      \CVItemListEnd
+      \vspace{10pt}
+    \CVSubheading
+      {Data Scientist 2 - AI Specialist, Product Development and Innovation}{Aug 2020 -- Sep 2022}
+      {\textbf{MasterCard, AI Garage} }{Gurugram, India}
+      \CVItemListStart
+        \CVItem{Product design and development of "\textit{ESG Q\&A System For Investors}" use case}
+        \CVItemListStart
+        \CVItem{Successfully built and prototyped end-to-end Neural Q\&A system on Mastercard reports}
+        \CVItem{Used deep learning techniques including BERT, advanced document preprocessing and softly deployed as a Streamlit application}
+        \CVItemListEnd
+        \vspace{5pt}
+         \CVItem{Product Innovation on "\textit{Intelligent Retry Scores}" use case}
+         \CVItemListStart
+        \CVItem{Modelling customer behaviour on failed retrial recurring payments across merchants like Apple,Google,\\Amazon,Netflix \& Spotify}
+        \CVItem{Using tree models as well as deep models for predicting days to approval for customers across merchants}
+        \CVItemListEnd
+        \vspace{5pt}
+        \CVItem{Managed stakeholders to understand their requirements and present efficient solution}
+        \CVItem{Research and Leadership}
+         \CVItemListStart
+        \CVItem{Led research thread on temporal data synthesis using GANs}
+        \CVItem{Published two intermediary works as workshop papers at premier venues KDD and ECML-PKDD }
+        \CVItem{Lead a team on this thread, mentoring freshers, interns and peers towards quality research}
+        \CVItem{Working on another research thread on Neural Temporal Point Processes}
+        \CVItem{Published a CORE-A conference paper at CIKM-2022 on the same thread}
+        \CVItem{Filed 3 US Patents and cleared reviews on Next Transaction prediction, and Synthetic Time Series Generation, currently under process}
+        \CVItemListEnd
+       
+      \CVItemListEnd
+      \CVSubSubheading
+
+
+
+    % \CVSubheading
+    %   {Data Science Intern}{May 2019 -- July 2019}
+    %   {Airtel X Labs}{Bengaluru, India}
+    %   \CVItemListStart
+    %   \CVItem{Worked on Prediction and Recommendation of Amazon Prime acquisition for Airtel Users}
+    %     \CVItem{Worked on prediction of Average Revenue per user using Classical and Deep Learning models. Model was further used for churn prediction} 
+    %      \CVItem{Churn prediction and Offers suggestion for user retention} 
+       
+        
+    % \CVItemListEnd
+   
+  \CVSubHeadingListEnd
+% \vspace{-22pt}
+
+
+%-----EDUCATION----------------------------------------------------------------
+\section{Education}
+  \CVSubHeadingListStart
+%    \CVSubheading % Example
+%      {Degree Achieved}{Years of Study}
+%      {Institution of Study}{Where it is located}
+    \CVSubheading
+      {{Master of Technology $(M.Tech)$ $|$ \emph{\small{Electrical Engineering}}}}{Aug. 2018 -- June 2020}
+      {Indian Institute of Science, \small{\textbf{CGPA : 8.0/10.0}}}{Bengaluru, India}
+    \CVSubheading
+      {{Bachelor of Engineering $(B.E)$$|$ \emph{\small{Electrical Engineering}}}}{Aug. 2013 -- May 2017}
+      {Assam Engineering College, \small{\textbf{CGPA : 7.82/10.0}}}{Guwahati, Assam, India}
+
+  \CVSubHeadingListEnd
+
+  \section{Skills}
+ \begin{itemize}[leftmargin=0.5cm, label={}]
+    \small{\item{
+     \textbf{Data Science}{: Large Language Models, LangChain, LangGraphs, Speech Processing, Natural Language Processing, Machine Learning, Deep Learning, Tensorflow, Keras, PySpark, Pytorch, Big Data} \\
+     \textbf{Programming}{: Python (NumPy, SciPy, Matplotlib, Pandas, Scikit Learn), C, C++} \\
+     \textbf{Others}{: Celery, Redis, SQL, Impala, Hadoop, \textbf{AWS} (Lambda, Sagemaker, API Gateway, Elasticache Kubernetes Service, S3, ECR, SQS), Apache Airflow, API, Git, Microsoft Office Suite, LaTex, Maths and Statistics skills} \\
+    }}
+ \end{itemize}
+  
+%-----PUBLICATIONS----------------------------------------------------
+\begin{comment}
+Ideally the title of the work should speak for what it is. However if you feel
+like you should explain more about why the project is applicable to this job,
+use item list as is shown in the work experience section.
+\end{comment}
+
+\section{Publications \& Patents}
+  \CVSubHeadingListStart
+%    \CVSubheading
+%      {Title of Work}{When it was done}
+%      {Institution you worked with}{unused}
+    \CVSubheading
+    {\small{Low-Resource End-to-end Sanskrit TTS using Tacotron2, WaveGlow and Transfer Learning} }{2020}
+      {\small{A. Debnath, S. S. Patil, G. Nadiger and R. A. Ganesan\\2020 IEEE 17th India Council International Conference (INDICON)}}
+
+    \CVSubheading
+    {\small{Exploring Generative Data Augmentation in Multivariate
+    Time Series Forecasting: Opportunities and Challenges}} {2021}
+     {\small {A Debnath, G Waghmare, H Wadhwa, S Asthana and A Arora\\\small{MileTS’21: 7th KDD Workshop on Mining and Learning from Time Series}}}
+      
+    \CVSubheading
+    {\small{Adversarial Generation of Temporal Data: A Critique on Fidelity of Synthetic Data}} {2021}
+      {\small{Debnath A., Gupta N., Waghmare G., Wadhwa H., Asthana S., Arora A.\\Machine Learning and Principles and Practice of Knowledge Discovery} \\\small{in Databases, ECML PKDD 2021}}
+      
+    \CVSubheading
+    {\small{Modeling Inter-Dependence Between Time and Mark in Multivariate Temporal Point Processes}} {2022}
+      {\small{Waghmare G., Debnath A., Asthana S., and Malhotra A. 
+      \\31st ACM International Conference on Information \& Knowledge Management} \\\small{in proc, CIKM 2022}}
+
+          \CVSubheading
+    {\small{Artificial intelligence based methods and systems for improving accuracy of authorization optimizer}} {2024}
+    {\small{US Patent App. 18/473,737}}\\{\small{A Debnath, Ammar A Khan, A Arora, A Gupta, G V Waghmare, H Wadhwa, L Dheekollu, S Asthana}}
+ 
+  \CVSubHeadingListEnd
+  
+  
+%-----PROJECTS AND RESEARCH----------------------------------------------------
+\begin{comment}
+Ideally the title of the work should speak for what it is. However if you feel
+like you should explain more about why the project is applicable to this job,
+use item list as is shown in the work experience section.
+\end{comment}
+
+\section{Academic Projects}
+  \CVSubHeadingListStart
+%    \CVSubheading
+%      {Title of Work}{When it was done}
+%      {Institution you worked with}{unused}
+    \CVSubheading
+    {{Good Quality End-to-end Hindi TTS using Tacotron2, WaveGlow and Transfer Learning} }{Aug 2019- June 2020}
+      {Designed, develop and test an end-to-end TTS for Hindi in a well-known
+voice  \\With only 20 hrs of speech, able to achieve MOS of 4.45}
+
+    % \CVSubheading
+    %   {Amazon Prime Acquisition Recommendation}{June 2019}
+    %   {Recommended list of users most likely to avail Amazon Prime membership using Similarity index}{}
+    % \CVSubheading
+    %   {{Average Revenue Per User Prediction and Churn Prediction}  \emph{\small{}}}{July 2019}
+    %   {Predicted ARPU value for Airtel users and list of users who are most likely to become churn users}{}
+    \CVSubheading
+      {{Text-Independent Speaker Identification using Scattering Transform}}{Jan 2019 - May 2019}
+      {Text-independent speaker identification is attempted
+using features generated by \\scattering transform, achieved accuracy of 99.78\%}{}
+    % \CVSubheading
+    %   {Random Projection Dimensionality Reduction}{Feb 2019}
+    %   {Implemented Random Projections algorithm to convert the high-dimensional data into lower \\ dimension for Twitter, Pubmed and Dolphins Dataset}{}
+    \CVSubheading
+      {{Relation Extraction using Neural Network} \emph{\small{ }}}{Jan 2019 - May 2019}
+      {Analyzed different architectures like PCNN, BiGRU and GCN, that have been \\shown to be
+very good in Relation Extraction}{}
+     \newline
+    \CVSubheading
+      {{Explainable Deep Learning} \emph{\small{ }}}{Jan 2019 - May 2019}
+      {Addressed problem of model explanability, focussed on local and global explanations \\in image classification task}{}
+      
+     
+    % \CVSubheading
+    %   {{Community Detection in an Information Network}  \emph{\small{}}}{Sept 2018}
+    %   {Made use of the different methods to identify the communities }{}
+  \CVSubHeadingListEnd
+  
+
+%-----CONFERENCES AND PRESENTATIONS--------------------------------------------
+\begin{comment}
+Again the title should have already been enough, but if it is necessary to add
+descriptions maintain the consistency from prior sections
+\end{comment}
+
+% \section{Certifications}
+%   \CVSubHeadingListStart
+% %    \CVSubheading % Example
+% %      {Work Presented}{When}
+% %      {Occasion}{}
+%     \CVSubheading
+%       {Sequence Models}{November 2020}
+%       {Coursera $|$ \href{https://www.coursera.org/account/accomplishments/certificate/BBRLJC6MG7ZU}{See Certificate}}{}
+%     \CVSubheading
+%       {Sequences, Time Series and Prediction}{Oct 2020}
+%       {Coursera $|$ \href{https://www.coursera.org/account/accomplishments/certificate/H6FG2A7AQQ38}{See Certificate}}{}
+%     \CVSubheading
+%       {Convolutional Neural Networks}{May 2020}
+%       {Coursera $|$ \href{https://www.coursera.org/account/accomplishments/verify/AK8HEX3TMGG8}{See Certificate}}{}
+%   \CVSubHeadingListEnd
+  %\vspace{-35pt}
+
+% \section{M.Tech Courses}  
+% Pattern Recognition, Machine Learning, Practical Data Science, Data Analytics, Deep Learning, Computational Methods of Optimization, Linear Algebra and Probability, System Security, Cryptography, Design and Analysis of Algorithm
+% \vspace{-15pt}
+\section{Achievements}
+\CVSubHeadingListStart
+  
+    \CVItemListStart
+        \CVItem{Secured 99.17 percentile in GATE 2018 Electrical Engineering among 1.5 M + Students}
+        \CVItem{Secured 10.0 CGPA in CBSE AISSE 2011}
+      \CVItemListEnd
+\CVSubHeadingListEnd
+\section{Certifications & Accolades}
+\CVSubHeadingListStart
+  
+    \CVItemListStart
+        \CVItem{\textbf{S\&P Global Inventor}:
+Awarded to individuals in recognition of their commitment to protecting S&P Global’s intellectual property and filing their S&P Global patent with the U.S. Patent & Trademark Office.}
+        \CVItem{\textbf{LLM/GenAI Engineer/Architect Certification} :
+This certificate is awarded for acquiring knowledge around large language model topics for technical engineer and architect roles (S\&P Global)}
+        \CVItem{\textbf{LLM/GenAI Business Practitioner}
+: This certificate is awarded for acquiring knowledge around Generative AI and large language model topics for non-technical roles.  (S\&P Global)}
+\CVItem{ \textbf{2H'23 EEA Data - Innovation Champion Award} :
+The Essential Excellence Awards (EEA) set high-performance standards, values accountability and reward teamwork, ownership, and results across Market Intelligence Data. Recipients of this special achievement badge make outstanding contributions aimed at transforming operational efficiencies. This badge honors the contributions of those who show out of-the-box thinking with their ideas that have the potential to deliver more value in new ways and to spearhead the execution of ideas and solutions that promote efficiencies by impacting cost, revenues, process improvements or enhancing customer experience. Recipients of this badge have been recognized--first, through individual nominations, then, as winners of the Essential Excellence Awards Data, by their Market Intelligence peers.(S\&P Global)
+
+
+
+}
+      \CVItemListEnd
+      \CVSubHeadingListEnd
+%     \CVSubheading
+%      {ISRO SC Written Test} {Dec 2017} {Secured All India Rank 2 in Computer Science Stream}{}
+%     \CVSubheading
+%      {Gold Medalist} {2013-2017}  {Gold Medalist in B.tech (2013-2017) for Outstanding Academic Performance}{} 
+%     % \CVSubheading
+%     %  {Robotics Training} {2015} {Completed Live Project based Training }{}
+% \CVSubHeadingListEnd
+
+
+    
+% %-----HONORS AND AWARDS--------------------------------------------------------
+% \section{Volunteer Experience}
+%   \CVSubHeadingListStart
+% %    \CVSubheading %Example
+% %      {What}{When}
+% %      {Short Description}{}
+%     \CVSubheading
+%       {Placement Coordinator at IISc, CSA Department}{Aug 2019}
+%       {Responsible for all communication between Institute and Companies}{}
+%     \CVSubheading
+%       {Volunteer at CSA Summer School, IISc}{July 2019}
+%       {Responsible for interviewing candidates from various institutes and selecting good \\candidates to attend CSA summer school}{}
+%     \CVSubheading
+%       {Design Team Lead}{Feb 2019}
+%       {Led the Design Team for the Open Day event held on 23rd March, 2019. Responsible for\\ designing the website, event logo and posters, flyers and banners.}{}
+    
+    
+    
+%   \CVSubHeadingListEnd
+
+% %-----TEACHING EXPERIENCE------------------------------------------------------
+% \begin{comment}
+% Section is here as it applied to my application for positions in academia. 
+% Remember to tailor the resume for to the position.
+% \end{comment}
+
+
+
+%------------------------------------------------------------------------------
+\end{document}

@@ -1,0 +1,206 @@
+%-------------------------
+% Modern ATS-Friendly Resume (Fixed Compilation Errors)
+% Author: Ankur Debnath
+% Design: Two-column layout with subtle color accents
+% License: MIT
+%------------------------
+
+\documentclass[letterpaper,11pt]{article}
+
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\usepackage[english]{babel}
+\usepackage{tabularx}
+\usepackage{xcolor}
+\usepackage{tikz}
+\usepackage{geometry}
+\input{glyphtounicode}
+
+% Define modern color palette
+\definecolor{headerblue}{RGB}{44, 62, 80}        % Deep blue for header
+\definecolor{accentblue}{RGB}{52, 152, 219}      % Bright blue for accents
+\definecolor{lightgray}{RGB}{236, 240, 241}      % Light gray for sidebar
+\definecolor{darktext}{RGB}{44, 62, 80}          % Dark blue-gray for text
+\definecolor{mediumgray}{RGB}{127, 140, 141}     % Medium gray for dates
+
+% Set page margins
+\geometry{left=0.4in, right=0.4in, top=0.3in, bottom=0.5in}
+
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% Font
+\usepackage{times}
+
+% Section formatting
+\titleformat{\section}{\vspace{8pt}\large\bfseries\color{headerblue}}{}{0em}{}[\vspace{2pt}]
+
+% Custom commands
+\newcommand{\resumeItem}[1]{\item\small{#1 \vspace{-2pt}}}
+\newcommand{\skillbar}[2]{%
+  \textbf{\small #1} \\
+  \vspace{1pt}
+  \begin{tikzpicture}
+    \draw[fill=lightgray, draw=none] (0,0) rectangle (2.5,0.1);
+    \draw[fill=accentblue, draw=none] (0,0) rectangle (#2*2.5,0.1);
+  \end{tikzpicture}
+  \vspace{3pt}
+}
+
+\renewcommand\labelitemii{$\vcenter{\hbox{\tiny$\bullet$}}$}
+
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0in, label={}]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}[leftmargin=0.15in]}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
+
+% Ensure PDF is machine readable
+\pdfgentounicode=1
+
+%-------------------------------------------
+%%%%%%  RESUME STARTS HERE  %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+% Header Section with colored background
+\colorbox{headerblue}{%
+  \begin{minipage}{\textwidth}
+    \centering
+    \color{white}
+    \vspace{8pt}
+    {\Huge\bfseries Ankur Debnath} \\[8pt]
+    {\large AI/ML Leader \& Data Science Executive} \\[6pt]
+    \small +91-7002296838 $\bullet$ ankurdebnath35@gmail.com \\
+    LinkedIn: linkedin.com/in/ankur-debnath-b0b694104 $\bullet$ Google Scholar Profile
+    \vspace{8pt}
+  \end{minipage}
+}
+
+\vspace{12pt}
+
+% Two-column layout
+\begin{minipage}[t]{0.33\textwidth}
+% Left column - Sidebar with light background
+\colorbox{lightgray}{%
+\begin{minipage}{\textwidth}
+\vspace{8pt}
+
+\section{SUMMARY}
+\vspace{2pt}
+\color{darktext}\footnotesize
+Innovative AI/ML leader with 5+ years architecting scalable AI solutions. Generated \textbf{\$12M revenue opportunities}, saved \textbf{40 FTEs}, with expertise in LLMs, GNNs, and production AI systems.
+
+\vspace{10pt}
+\section{CORE SKILLS}
+\vspace{4pt}
+\skillbar{LLMs \& NLP}{0.95}
+\skillbar{Graph Neural Networks}{0.9}
+\skillbar{Python \& Frameworks}{0.95}
+\skillbar{AWS \& Cloud}{0.85}
+\skillbar{Team Leadership}{0.8}
+\skillbar{Research}{0.9}
+
+\vspace{10pt}
+\section{KEY ACHIEVEMENTS}
+\vspace{2pt}
+\color{darktext}\footnotesize
+\begin{itemize}[leftmargin=0.1in]
+  \item \textbf{3+ US Patents} on AI innovations
+  \item \textbf{4 Publications} in KDD, CIKM, ECML-PKDD
+  \item \textbf{S\&P Global Inventor Award}
+  \item \textbf{99.17\%ile GATE} among 1.5M+ candidates
+\end{itemize}
+
+\vspace{10pt}
+\section{EDUCATION}
+\vspace{2pt}
+\color{darktext}
+\textbf{\small M.Tech Electrical Engineering} \\
+\textcolor{mediumgray}{\footnotesize Indian Institute of Science} \\
+\textcolor{mediumgray}{\footnotesize Aug 2018 - June 2020} \\[4pt]
+
+\textbf{\small B.E Electrical Engineering} \\
+\textcolor{mediumgray}{\footnotesize Assam Engineering College} \\
+\textcolor{mediumgray}{\footnotesize Aug 2013 - May 2017}
+
+\vspace{10pt}
+\section{CERTIFICATIONS}
+\vspace{2pt}
+\color{darktext}\footnotesize
+$\bullet$ LLM/GenAI Engineer/Architect \\
+$\bullet$ LLM/GenAI Business Practitioner \\
+$\bullet$ Innovation Champion Award
+
+\vspace{8pt}
+\end{minipage}
+}
+\end{minipage}%
+\hfill
+\begin{minipage}[t]{0.64\textwidth}
+\vspace{8pt}
+
+\section{PROFESSIONAL EXPERIENCE}
+
+\textbf{\large Lead Data Scientist, Senior Data Scientist} \hfill \textcolor{mediumgray}{Sep 2022 - Present} \\
+\textcolor{accentblue}{\textbf{S\&P Global - Enterprise Data Organisation}} \hfill \textcolor{mediumgray}{Gurugram, India} \\[2pt]
+
+\textcolor{darktext}{\textbf{AI Live Transcripts}} \\
+$\bullet$ Designed production pipeline using AWS, Kubernetes, OpenAI Whisper targeting \textbf{\$12M annual opportunity} \\
+$\bullet$ Implemented Human-out-of-the-loop automation reducing manual dependencies \\[4pt]
+
+\textcolor{darktext}{\textbf{DocSense Platform}} \\
+$\bullet$ Deployed document routing system achieving \textbf{80\% noise reduction, 36K man-hours saved} \\
+$\bullet$ Built comprehensive ML platform with LLMs, VectorDB, monitoring dashboards \\[4pt]
+
+\textcolor{darktext}{\textbf{Web IQ Solutions}} \\
+$\bullet$ Extracted data from \textbf{153K URLs, 2.49M domains} with 90\%+ success rate \\
+$\bullet$ Avoided \textbf{40 FTE costs}, increased update frequency from half-yearly to daily \\
+$\bullet$ Led team of 5 Data Scientists/Engineers, filed patent on graph-based web extraction
+
+\vspace{8pt}
+\textbf{\large Data Scientist II - AI Specialist} \hfill \textcolor{mediumgray}{Aug 2020 - Sep 2022} \\
+\textcolor{accentblue}{\textbf{MasterCard AI Garage}} \hfill \textcolor{mediumgray}{Gurugram, India} \\[2pt]
+
+$\bullet$ Developed ESG Q\&A system using BERT; deployed via Streamlit for investor insights \\
+$\bullet$ Built Intelligent Retry Scores for major merchants (Apple, Google, Amazon, Netflix) \\
+$\bullet$ Led research on GAN-based temporal synthesis; published 3 papers at top venues \\
+$\bullet$ Filed 3 US patents on transaction prediction and synthetic time series
+
+\vspace{10pt}
+\section{PUBLICATIONS \& PATENTS}
+
+\small
+\textbf{``Modeling Inter-Dependence in Multivariate Temporal Point Processes''} \\
+\textcolor{mediumgray}{CIKM 2022 - ACM International Conference} \\[2pt]
+
+\textbf{``Adversarial Generation of Temporal Data''} \\
+\textcolor{mediumgray}{ECML PKDD 2021 - European Conference on ML} \\[2pt]
+
+\textbf{``Generative Data Augmentation in Time Series Forecasting''} \\
+\textcolor{mediumgray}{KDD MileTS Workshop 2021} \\[2pt]
+
+\textbf{US Patent: AI-based Authorization Optimizer} \\
+\textcolor{mediumgray}{US Patent Application 18/473,737 (2024)}
+
+\vspace{10pt}
+\section{SELECT PROJECTS}
+
+\small
+\textbf{Hindi Text-to-Speech System} \hfill \textcolor{mediumgray}{2019-2020} \\
+Tacotron2+WaveGlow achieving MOS 4.45 with 20h data \\[2pt]
+
+\textbf{Speaker Identification using Scattering Transform} \hfill \textcolor{mediumgray}{2019} \\
+99.78\% accuracy for text-independent identification \\[2pt]
+
+\textbf{Neural Relation Extraction} \hfill \textcolor{mediumgray}{2019} \\
+Analyzed PCNN, BiGRU, GCN architectures for NLP tasks
+
+\end{minipage}
+
+\end{document}

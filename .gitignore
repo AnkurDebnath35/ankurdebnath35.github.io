@@ -1,0 +1,4 @@
+# LaTeX compiler artifacts
+overleaf-artifacts/*.aux
+overleaf-artifacts/*.log
+overleaf-artifacts/*.out

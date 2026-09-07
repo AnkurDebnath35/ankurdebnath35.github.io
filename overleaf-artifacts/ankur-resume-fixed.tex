@@ -1,0 +1,336 @@
+%-------------------------
+% ATS-Friendly Resume with Optimized Section Order
+% Author: Ankur Debnath
+% Based on Jake's Resume template (ATS-Compatible)
+% License: MIT
+%------------------------
+
+\documentclass[letterpaper,11pt]{article}
+
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\usepackage[english]{babel}
+\usepackage{tabularx}
+\input{glyphtounicode}
+
+% Font
+\usepackage{times}
+
+\pagestyle{fancy}
+\fancyhf{} % clear all header and footer fields
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% Adjust margins
+\addtolength{\oddsidemargin}{-0.5in}
+\addtolength{\evensidemargin}{-0.5in}
+\addtolength{\textwidth}{1in}
+\addtolength{\topmargin}{-.5in}
+\addtolength{\textheight}{1.0in}
+
+\urlstyle{same}
+
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+% Sections formatting
+\titleformat{\section}{
+  \vspace{-4pt}\scshape\raggedright\large
+}{}{0em}{}[\color{black}\titlerule \vspace{-5pt}]
+
+% Ensure that .pdf is machine readable/ATS parsable
+\pdfgentounicode=1
+
+%-------------------------
+% Custom commands
+\newcommand{\resumeItem}[1]{
+  \item\small{
+    {#1 \vspace{-2pt}}
+  }
+}
+
+\newcommand{\resumeSubheading}[4]{
+  \vspace{-2pt}\item
+    \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & #2 \\
+      \textit{\small#3} & \textit{\small #4} \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeSubSubheading}[2]{
+    \item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \textit{\small#1} & \textit{\small #2} \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeProjectHeading}[2]{
+    \item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \small#1 & #2 \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+% New command for project sub-items with deeper indentation
+\newcommand{\resumeProjectItem}[1]{
+  \item\footnotesize{
+    {#1 \vspace{-2pt}}
+  }
+}
+
+\newcommand{\resumeSubItem}[1]{\resumeItem{#1}\vspace{-4pt}}
+
+\renewcommand\labelitemii{$\vcenter{\hbox{\tiny$\bullet$}}$}
+
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.15in, label={}]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
+
+% Project-specific lists with deeper indentation
+\newcommand{\resumeProjectListStart}{\begin{itemize}[leftmargin=0.3in]}
+\newcommand{\resumeProjectListEnd}{\end{itemize}\vspace{-3pt}}
+
+%-------------------------------------------
+%%%%%%  RESUME STARTS HERE  %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+%----------HEADING----------
+\begin{center}
+    \textbf{\Huge \scshape Ankur Debnath} \\ \vspace{1pt}
+    \small +91-7002296838 $|$ \href{mailto:ankurdebnath35@gmail.com}{\underline{Email}} $|$ 
+    \href{https://linkedin.com/in/ankur-debnath-b0b694104}{\underline{LinkedIn}} $|$
+    \href{https://scholar.google.com/citations?hl=en\&user=9\_SZhIYAAAAJ}{\underline{Google Scholar}} $|$
+    \href{https://github.com/AnkurDebnath35}{\underline{GitHub}}    
+\end{center}
+
+%-----------PROFESSIONAL SUMMARY-----------
+\section{\textbf{Professional Summary}}
+\small{AI/ML leader with 6+ years of experience building and scaling end-to-end AI platforms in enterprise environments. Led teams of 5+ Data Scientists and Engineers while architecting production systems processing millions of documents, generating \$15M revenue opportunities and achieving 185+ FTE cost savings. Proven track record in technical leadership and team mentorship, combining deep expertise in LLMs, GANs, NLP, Speech AI, Time Series and production AI systems with research innovation (4 publications, 3+ patents) and operational excellence.}
+
+%-----------CORE COMPETENCIES-----------
+\section{\textbf{Core Competencies}}
+ \begin{itemize}[leftmargin=0.15in, label={}]
+    \small{\item{
+     \textbf{Data Science}{: Large Language Models, RAG, Deep Research (Agentic), ASR, TTS, Natural Language Processing, Machine Learning, Deep Learning, Tensorflow, Keras, PySpark, Pytorch, Big Data} \\
+     \textbf{Programming}{: Python (NumPy, SciPy, Matplotlib, Pandas, Scikit Learn), C, C++} \\
+    \textbf{Others}{: Celery, Redis, Kafka, Websockets, LangChain, CrewAI, LlamaIndex, PEFT, FAISS, Pinecone, Docker, pgvector, Web Automation, browser\_use (AI Agents), NeMo, Terraform, LocalStack, SQL, Impala, Hadoop, Apache Airflow, FastAPI, Flask, Git, Microsoft Office Suite, LaTex, Maths and Statistics skills} \\
+    \textbf{Cloud}{: AWS (Lambda, EventBridge, API Gateway, Kubernetes, S3, ECR, EC2, SQS, CloudWatch, MSK Kafka, DynamoDB, Step Functions, RDS Aurora, ElastiCache)} \\
+     \textbf{Frontend}{:  Streamlit}
+
+    }}
+ \end{itemize}
+
+%-----------KEY ACHIEVEMENTS & AWARDS-----------
+\section{\textbf{Key Achievements \& Awards}}
+  \resumeSubHeadingListStart
+    \resumeItem{Filed 3+ US patents on AI innovations including Generative Time Series, Web Data Extraction and Authorization Optimization}
+    \resumeItem{4 publications in premier venues: KDD, CIKM, ECML-PKDD, IEEE INDICON}
+    \resumeItem{S\&P Global Inventor Award and 2H'23 EEA Data Innovation Champion Award}
+    \resumeItem{S\&P Global EDO Catalyst for the Future Team Award}
+    \resumeItem{99.17 percentile in GATE 2018 Electrical Engineering (among 1.5M+ candidates)}
+    \resumeItem{Secured 154 Rank in Assam CEE 2013}
+  \resumeSubHeadingListEnd
+
+%-----------EXPERIENCE-----------
+\section{\textbf{Experience}}
+  \resumeSubHeadingListStart
+
+    \resumeSubheading
+      {Lead Data Scientist, Senior Data Scientist}{Sep 2022 -- Present}
+      {S\&P Global - Enterprise Data Organisation}{Gurugram, India}
+      
+      \vspace{10pt}
+      \textbf{AI Live Transcripts (Ongoing)}
+      \resumeProjectListStart
+        \resumeProjectItem{Designed, developed and productionalized a live transcription system for Corporate Calls in S\&P Capital IQ Pro, securing 150 FTEs against the initiative and enabling its sale as a standalone technology product alongside transcripts as a data.}
+        \resumeProjectItem{Used Whisper Large V3 via Groq for ASR, NVIDIA NeMo SortFormer for neural diarization, TitaNet Large for speaker embeddings, and LLM-based speaker tagging with GPT-4o and Gemini via LangChain.}
+        \resumeProjectItem{Built a serverless audio sourcing pipeline using API Gateway, Lambda, Step Functions, EventBridge, ECS, and MSK Kafka with a Gemini browser agent for autonomous webcast navigation, plus a multiprocessing transcription server with a five-stage worker pipeline deployed on Kubernetes.}
+        \resumeProjectItem{Implemented an end-to-end human-out-of-the-loop automation pipeline with Redis-backed distributed clustering state, PostgreSQL on RDS Aurora for segment tracking, a dedicated GPU embedding microservice, and real-time client updates through downstream Kafka event streaming.}
+        \resumeProjectItem{Navigated vague, evolving, and challenging requirements for this business-critical solution, targeting a \$12 Million annual opportunity.}
+      \resumeProjectListEnd
+      
+      \vspace{3pt}
+      \textbf{DocSense - Document Relevancy \& Routing (Ongoing)}
+      \resumeProjectListStart
+        \resumeProjectItem{Designed and deployed a platform for document routing, replacing legacy Content Collection Workflow}
+        \resumeProjectItem{\textbf{80\% reduction in noise} and \textbf{65k+ man hours saved} as a part of DocSense platform}
+        \resumeProjectItem{Comprises of Document Deduplication, Document Relevancy Model Zoo, Document Routing, Continual Learning and Model Monitoring.}
+        \resumeProjectItem{A single platform for encapsulating various document routing use-cases}
+        \resumeProjectItem{Uses a rich tech-stack including, LLMs, transformer-based models, VectorDB, Grafana for Model Monitoring, Celery-Redis Asynchronous Task Management and Kubernetes for containerized deployment}
+        \resumeProjectItem{Delivered 35 FTE savings across Transactions, KeyDevs, KeyEvents, and Market Data datasets.}
+        \resumeProjectItem{Established standardized processes for Data Science initiatives in collaboration with Data Ops, laying the foundation for the creation of Data AI Ops.}
+        \resumeProjectItem{Migrated legacy DRA models from Domino to AWS to ensure business continuity.}
+      \resumeProjectListEnd
+
+      \vspace{3pt}
+      \textbf{Project Nova - Controversy Tracking \& Bundling (Ongoing)}
+      \resumeProjectListStart
+        \resumeProjectItem{Extension of DocSense Platform : An innovative solution to track ESG related controversies and bundle updates from news articles over time}
+        \resumeProjectItem{An end-to-end automation pipeline designed to replace existing 3rd party vendor and automate HITL workflow , targeted towards an opportunity of \textbf{\$2.5 Million every year}}
+        \resumeProjectItem{Comprises of Article Deduplication, Relevancy Model, NER (Tagging impacted companies), Entity Linking (with S\&P Company IDs, Online Clustering over document embeddings.}
+        \resumeProjectItem{A hybrid system involving both small and large language models, RAG and pgvector for document retrieval and embeddings from LLM. Also includes, NER and entity linking achieved by prompt-based LLM extraction.}
+        \resumeProjectItem{Attained \$2M in annual savings within 6 months by developing a production-grade solution to replace the external vendor.}
+        
+      \resumeProjectListEnd
+
+
+
+
+
+
+
+
+      \vspace{3pt}
+      \textbf{Web IQ - Bank Rates, ETF Benchmarking Solutions}
+      \resumeProjectListStart
+        \resumeProjectItem{Successfully built and deployed end-to-end bank rates extraction from websites and alert on any change detected over time}
+        \resumeProjectItem{Covered \textbf{153K urls and 2.49M domains} with over \textbf{90\% success rate} with increase of \textbf{27\% TAT}}
+        \resumeProjectItem{Designed and deployed an ETF data extraction pipeline following the same lines}
+        \resumeProjectItem{Avoided cost of \textbf{40 FTEs} and increased dataset updation frequency from half-yearly(legacy manual process) to daily. Also increased coverage of 300 ETFs to \textbf{7000 ETFs on per-day basis}}
+        \resumeProjectItem{Used \textbf{graph embeddings} for identifiying areas of interest and track changes on webpage over time}
+        \resumeProjectItem{Successfully delivered and transitioned the EBS system into BAU (Business As Usual).}
+      \resumeProjectListEnd
+
+      \vspace{3pt}
+      \textbf{Technical POCs \& Innovation}
+      \resumeProjectListStart
+        \resumeProjectItem{Designed AWSome, a harness for creating AWS-based architectures from application code with local testing via LocalStack and Floci, reducing time-to-production while adhering to TechOps organizational standards.}
+        \resumeProjectItem{Created Agentic-DocSense, a novel Multi-Agent System (MAS) architecture for agentic document classification, label correction, and semi-supervised classification.}
+        \resumeProjectItem{Built DocSensei, a NodeJS UI enabling model training and label correction workflows.}
+        \resumeProjectItem{Evaluated and fine-tuned SLMs such as Qwen for complex problems that smaller models could not solve, enabling hybrid SLM-LLM production solutions.}
+      \resumeProjectListEnd
+      
+      \vspace{3pt}
+      \textbf{Research and Leadership}
+      \resumeProjectListStart
+        \resumeProjectItem{Lead and manage a team of 5 Data Scientists and Data Engineers, including members up to G12, across multiple critical projects as Solution Architect taking models from POC to production.}
+        \resumeProjectItem{Initiated and led the R\&D initiative for Cognitive Engineering, engaging externally with academia including MIT and Glia and evaluating vendors such as Cognition and Baseten for production pipeline optimization.}
+        \resumeProjectItem{Initiated and contributed towards development of critical boilerplate pipelines for asynchronous task management, web data extraction and pipeline orchestration, now used for creating large and scalable pipelines.}
+        \resumeProjectItem{Led hiring drives for talent acquisition, conducted technical interviews, mentored interns, and provided cross-domain career guidance.}
+        \resumeProjectItem{Filed a system patent based on Web IQ \textbf{"System and Method for Web Data Extraction Using Meta-path Graph Data Model"}.}
+      \resumeProjectListEnd
+    \vspace{10pt}
+    \resumeSubheading
+      {Data Scientist 2 - AI Specialist, Product Development and Innovation}{Aug 2020 -- Sep 2022}
+      {MasterCard, AI Garage}{Gurugram, India}
+      
+      \vspace{10pt}
+      \textbf{Product design and development of "ESG Q\&A System For Investors" use case}
+      \resumeProjectListStart
+        \resumeProjectItem{Successfully built and prototyped end-to-end Neural Q\&A system on Mastercard reports}
+        \resumeProjectItem{Used deep learning techniques including \textbf{BERT}, advanced document preprocessing and softly deployed as a Streamlit application}
+      \resumeProjectListEnd
+      
+      \vspace{3pt}
+      \textbf{Product Innovation on "Intelligent Retry Scores" use case}
+      \resumeProjectListStart
+        \resumeProjectItem{Modelling customer behaviour on failed retrial recurring payments across merchants like Apple, Google, Amazon, Netflix \& Spotify}
+        \resumeProjectItem{Using tree models as well as deep models for predicting days to approval for customers across merchants}
+        \resumeProjectItem{Managed stakeholders to understand their requirements and present efficient solution}
+      \resumeProjectListEnd
+      
+      \vspace{3pt}
+      \textbf{Research and Leadership}
+      \resumeProjectListStart
+        \resumeProjectItem{Led research thread on \textbf{temporal data synthesis using GANs}}
+        \resumeProjectItem{Published two intermediary works as workshop papers at premier venues \textbf{KDD and ECML-PKDD}}
+        \resumeProjectItem{Lead a team on this thread, mentoring freshers, interns and peers towards quality research}
+        \resumeProjectItem{Worked on another research thread on \textbf{Neural Temporal Point Processes}}
+        \resumeProjectItem{Published a \textbf{CORE-A conference paper at CIKM-2022} on the same thread}
+        \resumeProjectItem{Filed \textbf{3 US Patents} and cleared reviews on Next Transaction prediction, and Synthetic Time Series Generation, currently under process}
+      \resumeProjectListEnd
+
+  \resumeSubHeadingListEnd
+
+%-----------EDUCATION-----------
+\section{\textbf{Education}}
+  \resumeSubHeadingListStart
+    \resumeSubheading
+      {Master of Technology in Electrical Engineering}{Aug 2018 -- June 2020}
+      {Indian Institute of Science, CGPA : 8.0/10.0}{Bengaluru, India}
+    \resumeSubheading
+      {Bachelor of Engineering in Electrical Engineering}{Aug 2013 -- May 2017}
+      {Assam Engineering College, CGPA : 7.82/10.0}{Guwahati, Assam, India}
+  \resumeSubHeadingListEnd
+
+%-----------PUBLICATIONS & PATENTS-----------
+\section{\textbf{Publications \& Patents}}
+  \resumeSubHeadingListStart
+    \resumeItem{\textbf{Modeling Inter-Dependence Between Time and Mark in Multivariate Temporal Point Processes} (2022) \\
+    Waghmare G., \textbf{Debnath A.}, Asthana S., and Malhotra A. \\
+    \textit{31st ACM International Conference on Information \& Knowledge Management, CIKM 2022}}
+    
+    \resumeItem{\textbf{Adversarial Generation of Temporal Data: A Critique on Fidelity of Synthetic Data} (2021) \\
+    \textbf{Debnath A.}, Gupta N., Waghmare G., Wadhwa H., Asthana S., Arora A. \\
+    \textit{Machine Learning and Principles and Practice of Knowledge Discovery in Databases, ECML PKDD 2021}}
+    
+    \resumeItem{\textbf{Exploring Generative Data Augmentation in Multivariate Time Series Forecasting: Opportunities and Challenges} (2021) \\
+    \textbf{A Debnath}, G Waghmare, H Wadhwa, S Asthana and A Arora \\
+    \textit{MileTS'21: 7th KDD Workshop on Mining and Learning from Time Series}}
+    
+    \resumeItem{\textbf{Low-Resource End-to-end Sanskrit TTS using Tacotron2, WaveGlow and Transfer Learning} (2020) \\
+    \textbf{A. Debnath}, S. S. Patil, G. Nadiger and R. A. Ganesan \\
+    \textit{2020 IEEE 17th India Council International Conference (INDICON)}}
+    
+    \resumeItem{\textbf{Artificial intelligence based methods and systems for improving accuracy of authorization optimizer} (2024) \\
+    \textbf{A Debnath}, Ammar A Khan, A Arora, A Gupta, G V Waghmare, H Wadhwa, L Dheekollu, S Asthana \\
+    \textit{US Patent Application 18/473,737}}
+  \resumeSubHeadingListEnd
+
+%-----------SELECT PROJECTS-----------
+\section{\textbf{Academic Projects}}
+    \resumeSubHeadingListStart
+      \resumeProjectHeading
+          {\textbf{Good Quality End-to-end Hindi TTS using Tacotron2, WaveGlow and Transfer Learning}}{Aug 2019 -- June 2020}
+          \resumeProjectListStart
+            \resumeProjectItem{Designed, develop and test an end-to-end TTS for Hindi in a well-known voice}
+            \resumeProjectItem{With only 20 hrs of speech, able to achieve \textbf{MOS of 4.45}}
+          \resumeProjectListEnd
+      \resumeProjectHeading
+          {\textbf{Text-Independent Speaker Identification using Scattering Transform}}{Jan 2019 -- May 2019}
+          \resumeProjectListStart
+            \resumeProjectItem{Text-independent speaker identification is attempted using features generated by scattering transform, achieved \textbf{accuracy of 99.78\%}}
+          \resumeProjectListEnd
+      \resumeProjectHeading
+          {\textbf{Relation Extraction using Neural Network}}{Jan 2019 -- May 2019}
+          \resumeProjectListStart
+            \resumeProjectItem{Analyzed different architectures like \textbf{PCNN, BiGRU and GCN}, that have been shown to be very good in Relation Extraction}
+          \resumeProjectListEnd
+      \resumeProjectHeading
+          {\textbf{Explainable Deep Learning}}{Jan 2019 -- May 2019}
+          \resumeProjectListStart
+            \resumeProjectItem{Addressed problem of model explanability, focussed on local and global explanations in image classification task}
+          \resumeProjectListEnd
+    \resumeSubHeadingListEnd
+
+%-----------ACHIEVEMENTS-----------
+\section{Achievements}
+\resumeSubHeadingListStart
+    \resumeItem{Secured 99.17 percentile in GATE 2018 Electrical Engineering among 1.5 M + Students}
+    \resumeItem{Secured 10.0 CGPA in CBSE AISSE 2011}
+\resumeSubHeadingListEnd
+
+%-----------CERTIFICATIONS & ACCOLADES-----------
+\section{Certifications \& Accolades}
+\resumeSubHeadingListStart
+  \resumeItem{\textbf{S\&P Global EDO Catalyst for the Future Team Award}: Awarded in recognition of driving innovation and delivering transformative AI solutions that position the organization for future growth.}
+    \resumeItem{\textbf{S\&P Global EDO Catalyst for Growth Team Award}: Celebrating colleagues who enable growth through tangible results e.g., standardizing distribution channel management, supporting the creation of cross-divisional products and solutions, driving differentiation through data quality elevation, enhancing speed and discoverability of data, etc.}
+    \resumeItem{\textbf{S\&P Global Inventor}: Awarded to individuals in recognition of their commitment to protecting S\&P Global's intellectual property and filing their S\&P Global patent with the U.S. Patent \& Trademark Office.}
+    \resumeItem{\textbf{LLM/GenAI Engineer/Architect Certification}: This certificate is awarded for acquiring knowledge around large language model topics for technical engineer and architect roles (S\&P Global)}
+    \resumeItem{\textbf{LLM/GenAI Business Practitioner}: This certificate is awarded for acquiring knowledge around Generative AI and large language model topics for non-technical roles. (S\&P Global)}
+    \resumeItem{\textbf{2H'23 EEA Data - Innovation Champion Award}: The Essential Excellence Awards (EEA) set high-performance standards, values accountability and reward teamwork, ownership, and results across Market Intelligence Data. Recipients of this special achievement badge make outstanding contributions aimed at transforming operational efficiencies.}
+\resumeSubHeadingListEnd
+
+%-------------------------------------------
+\end{document}
